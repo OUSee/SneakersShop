@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux'
-import styles from './styles.module.css'
-import { AppDispatch, RootState } from '../../../redux/store'
+import { useSelector } from 'react-redux';
+import { Sneaker } from '../../../types';
+import styles from './styles.module.css';
 import { useEffect, useState } from 'react'
-import { getCart } from '../../../redux/slices/cartsSlice'
-import { PostCart, Sneaker } from '../../../types'
+import { RootState } from '../../../redux/store';
 
 
 interface IListItem{

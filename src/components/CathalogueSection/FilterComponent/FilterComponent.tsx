@@ -1,6 +1,11 @@
 import { FormEvent, useEffect, useState } from 'react';
 import styles from './styles.module.css'
 import { Slider } from './Slider';
+import { Filter } from '../../../types';
+import { filter } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../redux/store';
+import { ProductsSlice } from '../../../redux/slices/productsSlice';
 // import noUiSlider from 'nouislider';
 // import 'nouislider/dist/nouislider.css';
 
@@ -10,14 +15,44 @@ export const FilterComponent = () => {
 
     const [prices, setPrice] = useState({ min: 0,  max: 26000});
     const sizes = [35, 36, 37, 38, 39, 40, 41, 42, 43];
+    const dispatch = useDispatch()
+    const productsState = useSelector((state: RootState) => state.products.data)
+
 
     //create filter object
+
+    const createFilterInstance = (filter : Filter) => {
+        
+        console.log('filter', filter)
+        dispatch(ProductsSlice.actions.filterData(filter))
+        console.log(productsState)
+    }
     
     const formFilter = (event: any) => {
         event.preventDefault();
         const form = new FormData(event.target);
         const data = Object.fromEntries(form);
-        console.log(data);
+        const newFilter: Filter = {
+            start_price: Number(data.start_price),
+            end_price: Number(data.end_price),
+            men: data.men === 'on',
+            women: data.women === 'on',
+            sizes: {
+                size35: data.size35 === 'on',
+                size36: data.size36 === 'on',
+                size37: data.size37 === 'on',
+                size38: data.size38 === 'on',
+                size39: data.size39 === 'on',
+                size40: data.size40 === 'on',
+                size41: data.size41 === 'on',
+                size42: data.size42 === 'on',
+                size43: data.size43 === 'on'
+            }
+        }
+        createFilterInstance(newFilter)
+        // const newfilter = data as Filter
+        // createFilterInstance()
+        console.log(data)
     }
     const sliderChange = (val: number[]) => {
         setPrice({ ...prices, min: val[0], max: val[1]})
@@ -52,8 +87,7 @@ export const FilterComponent = () => {
             <fieldset className={styles.checkBoxesContainer}>
                 <input name='men' type="checkbox" className='defaultCheckBox' id='genMen' />
                 <label htmlFor="genMen" className={styles.label}>Мужской</label>
-                <input name='women
-                ' type="checkbox" className='defaultCheckBox' id='genWomen' />
+                <input name='women' type="checkbox" className='defaultCheckBox' id='genWomen' />
                 <label htmlFor="genWomen" className={styles.label}>Женский</label>
             </fieldset>
             <h3 className={styles.SizesCheckboxTitle}>

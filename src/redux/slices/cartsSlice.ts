@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosinstanse } from "../axiosInstance";
-import { Cart, Endpoints, PostCart, Sneaker, Status } from "../../types";
+import { Cart, Endpoints, PostCart, Status } from "../../types";
 
 
 type CartState = {

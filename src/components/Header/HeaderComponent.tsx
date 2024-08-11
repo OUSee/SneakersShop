@@ -31,7 +31,7 @@ export const HeaderComponent = () => {
         if (json) {
             const { uid } = JSON.parse(json)
             await dispatch(getCart(uid))  
-            setCartAmmount(state.items.length)
+            setCartAmmount(state.items?.length)
         }
         else {
             const newCart: PostCart = {
@@ -45,7 +45,7 @@ export const HeaderComponent = () => {
 
 
     useEffect(() => { checkifCartExists() }, [])
-    useEffect(() => { setCartAmmount(state.items.length)},[state])
+    useEffect(() => { setCartAmmount(state.items?.length)},[state])
     
     return ( 
         <header className={styles.container}>
