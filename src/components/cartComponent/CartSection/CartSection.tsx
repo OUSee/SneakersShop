@@ -19,7 +19,7 @@ export const CartSection = () => {
         cartState.items.forEach((item: Sneaker) => { 
             sum++
         })
-        s
+        setCartTotalPrice(sum);
     }
 
     return ( 
@@ -44,7 +44,7 @@ export const CartSection = () => {
                         Состав заказа
                     </label>
                     <ul className={styles.accordionBody}>
-                        {state.items.map((item) => {
+                        {cartState.items.map((item) => {
                             return (<ListItem key={item.id} item={item} />)
                         })}
                     </ul>
