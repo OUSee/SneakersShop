@@ -4,8 +4,8 @@ import { LayoutComponent } from "./components/Layout/Layout"
 import { HomePage } from "./Pages/HomePage"
 import { CartPage } from "./Pages/CartPage"
 import { NotFoundPage } from "./Pages/NotFoundPage"
-import { useDispatch } from "react-redux"
-import { AppDispatch } from "./redux/store"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "./redux/store"
 import { useEffect } from "react"
 import { getProducts } from "./redux/slices/productsSlice"
 import { getCart, postCart } from "./redux/slices/cartsSlice"
@@ -15,6 +15,7 @@ import { Cart } from "./types"
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
+  const cartState = useSelector((state: RootState) => state.cart.data)
 
   const checkifCartExists = async () => {
         const generateUID = () => {
@@ -25,9 +26,13 @@ function App() {
         }
 
         const json = await localStorage.getItem('cart');
-        if (json) {
-            const { uid } = JSON.parse(json)
-            await dispatch(getCart(uid))  
+        console.log('json',json)
+        if (json !== null) {
+            let cart: Cart = JSON.parse(json)
+            console.log('cart: ', cart)
+            await dispatch(getCart(cart.uid))  
+            cart.items = cartState.items
+            localStorage.setItem('cart', JSON.stringify(cart))
         }
         else {
             const newCart: Cart = {
