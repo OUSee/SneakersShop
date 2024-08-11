@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 import { AppDispatch } from "./redux/store"
 import { useEffect } from "react"
 import { getProducts } from "./redux/slices/productsSlice"
-import { getCart } from "./redux/slices/cartsSlice"
+import { getCart, postCart } from "./redux/slices/cartsSlice"
 import { Cart } from "./types"
 
 
@@ -16,17 +16,32 @@ import { Cart } from "./types"
 function App() {
   const dispatch = useDispatch<AppDispatch>()
 
+  const checkifCartExists = async () => {
+        const generateUID = () => {
+            let uid = Math.random() * Math.pow(36, 6) << 0;
+            let struid = uid.toString() 
+            struid = '000000' + uid.toString(36);
+            return struid.slice(-6);
+        }
+
+        const json = await localStorage.getItem('cart');
+        if (json) {
+            const { uid } = JSON.parse(json)
+            await dispatch(getCart(uid))  
+        }
+        else {
+            const newCart: Cart = {
+                uid: generateUID(),
+                items: []
+            }
+          localStorage.setItem('cart', JSON.stringify(newCart));
+          dispatch(postCart(newCart))
+        }
+    }
+
   const getData = async () => {
     await dispatch(getProducts())
-    const cartJson = await localStorage.getItem('cart')
-    if (cartJson) { 
-      const cart = await JSON.parse(cartJson) as Cart;
-
-      await dispatch(getCart(cart.uid))
-    }
-    else {
-      console.log('err getting cart')
-    }
+    await checkifCartExists()
   }
 
   useEffect(() => {

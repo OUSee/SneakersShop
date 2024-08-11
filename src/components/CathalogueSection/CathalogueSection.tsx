@@ -6,13 +6,15 @@ import styles from './styles.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState, store } from '../../redux/store'
 import { getProducts } from '../../redux/slices/productsSlice'
-import { Sneaker } from '../../types'
+import { Sneaker, Status } from '../../types'
+import { Preloader } from '../preloader/Preloader'
     
 export const CathalogueSection = () => {
     const [popupVisible, setPopupVisible] = useState(false);
     const [popupSneaker, setPopupSneaker] = useState<Sneaker>();
     const [viewMore, setViewMore] = useState(false);
-    const state = useSelector((state: RootState)=> state.products.data)
+    const state = useSelector((state: RootState) => state.products.data)
+    const status = useSelector((state: RootState) => state.products.status)
     const dispatch = useDispatch<AppDispatch>();
     const defaultView = 6;
 
@@ -40,7 +42,7 @@ export const CathalogueSection = () => {
     return ( 
         <div id='cathalogue'className={styles.cathalogueContainer} >
             <div className='content'>
-                <h2 className={styles.sectionTitle}>Каталог</h2>
+                {status == Status.SUCSESS && <><h2 className={styles.sectionTitle}>Каталог</h2>
                 <div className={styles.menuGroup}>
                     <div className={styles.filterContainer}>
                         <FilterComponent />
@@ -54,7 +56,9 @@ export const CathalogueSection = () => {
                         {!viewMore && <button onClick={showAll} className={styles.wiewMoreBTN}>Показать еще</button>} 
                         
                     </div>
-                </div>
+                    </div>
+                </>}
+                {status == Status.LOADING && <Preloader />}
             </div>
             {popupVisible && popupSneaker && <CardPopup sneaker={popupSneaker} onClose={handleClosePopup}/> }
         </div>

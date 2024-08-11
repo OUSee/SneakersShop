@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
-import { Sneaker } from '../../../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { Cart, Sneaker } from '../../../types';
 import styles from './styles.module.css';
 import { useEffect, useState } from 'react'
-import { RootState } from '../../../redux/store';
+import { AppDispatch, RootState } from '../../../redux/store';
+import { getCart } from '../../../redux/slices/cartsSlice';
 
 
 interface IListItem{
@@ -12,6 +13,7 @@ interface IListItem{
 export const CartSection = () => {
     const [cartTotalPrice, setCartTotalPrice] = useState(0);
     const cartState = useSelector((state: RootState) => state.cart.data)
+    const dispatch = useDispatch<AppDispatch>()
     
     const getPrice = () => {
         let sum = 0;
@@ -21,7 +23,20 @@ export const CartSection = () => {
         setCartTotalPrice(sum);
     }
 
-    useEffect(()=>{getPrice()}, [])
+    const getCartData = async () => {
+        const json = await localStorage.getItem('cart')
+        if (json) { 
+            const cart : Cart = JSON.parse(json)
+            await dispatch(getCart(cart.uid))
+            console.log('UID: ', await cartState.uid)
+        }
+
+    }
+
+    useEffect(() => {
+        getCartData()
+        getPrice()
+    }, [])
 
     return ( 
         <div className={styles.container}>

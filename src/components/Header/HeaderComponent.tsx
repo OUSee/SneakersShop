@@ -9,7 +9,6 @@ import { getCart, postCart } from '../../redux/slices/cartsSlice'
 export const HeaderComponent = () => {
     const [cartPopupOpen, setCartPopupOpen] = useState(false);
     const state = useSelector((state: RootState) => state.cart.data)
-    const dispatch = useDispatch<AppDispatch>()
     const [cartItemsAmmount, setCartAmmount] = useState(0)
 
     const handleCartPopupOpen = () => {
@@ -19,32 +18,6 @@ export const HeaderComponent = () => {
         setCartPopupOpen(false);
     }
 
-    const checkifCartExists = async () => {
-        const generateUID = () => {
-            let uid = Math.random() * Math.pow(36, 6) << 0;
-            let struid = uid.toString() 
-            struid = '000000' + uid.toString(36);
-            return struid.slice(-6);
-        }
-
-        const json = await localStorage.getItem('cart');
-        if (json) {
-            const { uid } = JSON.parse(json)
-            await dispatch(getCart(uid))  
-            setCartAmmount(state.items?.length)
-        }
-        else {
-            const newCart: PostCart = {
-                uid: generateUID(),
-                items: []
-            }
-            dispatch(postCart(newCart))
-        }
-    }
-
-
-
-    useEffect(() => { checkifCartExists() }, [])
     useEffect(() => { setCartAmmount(state.items?.length)},[state])
     
     return ( 

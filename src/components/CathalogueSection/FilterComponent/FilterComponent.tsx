@@ -22,10 +22,7 @@ export const FilterComponent = () => {
     //create filter object
 
     const createFilterInstance = (filter : Filter) => {
-        
-        console.log('filter', filter)
         dispatch(ProductsSlice.actions.filterData(filter))
-        console.log(productsState)
     }
     
     const formFilter = (event: any) => {
@@ -50,8 +47,6 @@ export const FilterComponent = () => {
             }
         }
         createFilterInstance(newFilter)
-        // const newfilter = data as Filter
-        // createFilterInstance()
         console.log(data)
     }
     const sliderChange = (val: number[]) => {

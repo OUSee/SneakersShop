@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosinstanse } from "../axiosInstance";
-import { Cart, Endpoints, PostCart, Status } from "../../types";
+import { Cart, Endpoints, Status } from "../../types";
 
 
 type CartState = {
@@ -10,7 +10,7 @@ type CartState = {
 
 
 const initialState: CartState = {
-    data: { uid: "", items: [] , id: undefined},
+    data: { uid: "", items: [] },
     status: Status.LOADING,
 };
 
@@ -56,7 +56,7 @@ export const updateCart = createAsyncThunk("updateCart", async (cart: Cart) => {
     return data.data;
 }); 
 
-export const postCart = createAsyncThunk("postCart", async (cart: PostCart) => {
+export const postCart = createAsyncThunk("postCart", async (cart: Cart) => {
     const data = await axiosinstanse.post(Endpoints.CREATE_CART, cart);
     return data.data;
 });

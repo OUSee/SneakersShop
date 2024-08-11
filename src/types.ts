@@ -33,7 +33,6 @@ export type TeamMember = {
 export type Cart = { 
     uid: string;
     items: Sneaker[];
-    id: number | undefined
 }
 
 export enum Endpoints {
@@ -43,10 +42,6 @@ export enum Endpoints {
     CREATE_CART="/cart",
 }
 
-export type PostCart = {
-    uid: string;
-    items: Sneaker[];
-};
 
 export interface Filter {
     start_price: number;
