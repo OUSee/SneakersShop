@@ -22,6 +22,8 @@ export const CartSection = () => {
         setCartTotalPrice(sum);
     }
 
+    useEffect(()=>{getPrice()}, [])
+
     return ( 
         <div className={styles.container}>
             <div className={styles.cartHeader}>
@@ -31,7 +33,7 @@ export const CartSection = () => {
             {cartTotalPrice == 0 && <h3 className={styles.emptyCart}>Корзина пуста</h3>}
             {cartTotalPrice != 0 && 
                 <div className={styles.orderInfoContainer}>
-                    <h3 className={styles.itemsAmmount}>Товаров в заказе: <span className={styles.boldtxt}>{cartLength} шт</span></h3>
+                    <h3 className={styles.itemsAmmount}>Товаров в заказе: <span className={styles.boldtxt}>{cartState.items.length} шт</span></h3>
                     <h3 className={styles.itemsAmmount}>Общая сумма заказа: <span className={styles.boldtxt}>{cartTotalPrice} ₽</span></h3>
                     <input
                         type='checkbox'
