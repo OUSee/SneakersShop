@@ -1,0 +1,53 @@
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 42px 0px;
+    background-color: #484283;
+    background-image: url("../../assets/crewSircles.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 28vw;
+}
+
+.crewTitle {
+    color: white;
+    font-size: 21px;
+    margin-bottom: 28px;
+}
+
+.crewTable {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CrewMemcontainer {
+    box-sizing: border-box;
+    padding: 14px;
+    color: white;
+    flex: 0 0 33.3333%;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.CrewMemImageContainer{
+    width: 100%;
+    height: 240px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.crewMemImg {
+    width: 100%;
+    
+}
+
+.crewMemberName {
+    font-size: 18px;
+    margin-top: 14px;
+}
+
+.crewMemberPosition {
+    font-size: 11px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}

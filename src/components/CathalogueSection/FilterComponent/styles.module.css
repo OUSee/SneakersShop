@@ -1,0 +1,133 @@
+
+
+.container {
+    width: 93%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: #fff4ee;
+    border-radius: 4px;
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.filterTitle {
+    color: black;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.priceTilte,
+.sexCheckboxTitle,
+.SizesCheckboxTitle {
+    color: black;
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.pricesContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid rgba(178, 181, 187, 1);
+    border-radius: 4px;
+    padding: 12px 16px;
+}
+
+.controllDigits {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    font-size: 11px;
+    font-weight: 400;
+    border: 0;
+    text-align: center;
+}
+
+.controllDigits:first-child {
+    padding-right: 14px;
+    border-right: 1px solid rgba(178, 181, 187, 1);
+}
+
+.controllDigits:last-child {
+    padding-left: 14px;
+}
+
+.checkBoxesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.sizeCheckbox {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    margin: 0;
+}
+
+.sizesContainer {
+    box-sizing: border-box;
+    border: 1px solid rgb(90, 150, 0);
+    width: 100%;
+    height: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.checkBoxContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sizeLabel {
+    width: 100%;
+    height: 100%;
+    outline: 1px solid #f2ded4;
+    font-size: 14px;
+    text-align: center;
+    line-height: 49px;
+}
+
+.sizeLabel:hover {
+    background-color: #fbe8de;
+}
+
+.checkBoxContainer input[type="checkbox"]:checked + label {
+    background-color: #f2ded4;
+}
+
+.filterBTN {
+    color: white;
+    background-color: #444b58;
+    font-size: 11px;
+    font-weight: 400;
+    padding: 15px 34px;
+    border-radius: 4px;
+}
+
+.filterBTN:hover {
+    background-color: #31343b;
+}
+
+.setFilterToDefault {
+    background-color: #31343b00;
+    color: #31343b;
+}
+
+.setFilterToDefault:hover {
+    text-decoration: underline;
+    outline: none;
+    border: none;
+}

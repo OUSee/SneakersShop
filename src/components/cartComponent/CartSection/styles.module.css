@@ -1,0 +1,167 @@
+.container {
+    padding: 7.34vh 19%;
+    background-color: #484283;
+}
+
+.cartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background-color: white;
+    border-radius: 5px 5px 0px 0px;
+    padding: 28px;
+}
+
+.orderNumber {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(178, 181, 187, 1);
+}
+
+.orderInfoContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0 28px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.boldtxt{
+    font-size: 20px;
+}
+
+.buysListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.listItemImg {
+    width: 20%;
+}
+
+.listItemInfo{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.listItemTitle{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.listItemPrice{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.listItemDeleteBTN {
+    margin-left: auto;
+    margin-right: 5px;
+}
+.listItemDeleteBTN:hover{
+    background-color: #f6f6f6;
+}
+
+.cartInputForm{
+    display: flex;
+    flex-direction: column;
+    margin-top:28px;
+}
+
+.inputField{
+    background-color: #f6f6f6;
+    color: black;
+    padding: 14px;
+    font-size: 11px;
+    text-align: start;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    border: 0;
+}
+.inputField::placeholder{
+    font-size: 11px;
+    color: #cfd1d5;
+}
+
+.sendInfoBTN{
+    background-color: #f14f4f;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+    padding: 15px 0;
+    border-radius: 4px;
+    border: 0;
+    margin-bottom: 28px;
+}
+
+.sendInfoBTN:hover{
+    background-color: #cc4949;
+    border: 0;
+}
+
+/* accordion */
+
+.orderAccordionToggle {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.orderAccordionLable {
+    display: flex;
+    padding: 21px 0px;
+    background: #ffffff;
+    color: rgb(0, 0, 0) f9;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.orderAccordionLable::after{
+    margin-left: 5px;
+    content: url("./src/assets/arrowIcon.svg");
+    transition: all 0.5s ease;
+}
+
+.accordionBody {
+    box-sizing: border-box;
+    font-size: 11px;
+    max-height: 0;
+    padding: 0 10px;
+    color: rgba(36, 36, 36, 0.5);
+    background-color: #cbcbcb00;
+    transition: all 0.5s ease-in-out;
+    outline: 1px rgba(217, 217, 217, 1) solid;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.orderAccordionToggle:checked ~ .accordionBody{
+    max-height: 80vh;
+}
+
+.orderAccordionToggle:checked ~ .orderAccordionLable::after {
+    transform: rotate(180deg);
+}
+
+.emptyCart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 0px 0px 5px 5px;
+    padding: 183px;
+}

@@ -1,0 +1,170 @@
+.container {
+    padding: 42px 0px;
+    background-color: #f3f6f6;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sectionHeading {
+    margin-bottom: 42px;
+}
+
+.tooltipgroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.infoTitle {
+    margin-right: 7px;
+    font-size: 11px;
+    color: rgba(178, 181, 187, 1);
+}
+
+.tooltip {
+    font-size: 10px;
+    background-color: white;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 13, 84, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.tooltipContent {
+    position: absolute;
+    transform: translateY(-90%);
+    left: 23vw;
+    overflow: hidden;
+    max-height: fit-content;
+    transition: all 0.3s ease-in-out;
+    max-width: 33vw;
+    z-index: 1;
+    background-color: white;
+    border-radius: 4px;
+    opacity: 0;
+    font-size: 11px;
+    color: rgba(68, 75, 88, 1);
+}
+
+.tooltipDecoration {
+    top: -25px;
+    left: -14px;
+    position: relative;
+    transform: rotate(45deg);
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-color: #ffffff;
+    opacity: 0%;
+    transition: all 0.3s;
+    z-index: 2;
+}
+
+.tooltip:hover ~ .tooltipContent {
+    padding: 10px;
+    opacity: 100%;
+    cursor: pointer;
+    box-shadow: 4px 8px 20px 0px rgba(0, 13, 84, 0.2);
+}
+
+.tooltip:hover ~ .tooltipDecoration {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.number {
+    margin-top: 14px;
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.adress {
+    margin-bottom: 28px;
+    font-size: 13px;
+}
+
+.linksIcons {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.instagramLink,
+.vkLink {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e5a4c;
+    padding: 2px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.svg {
+    width: 60%;
+    height: 60%;
+}
+
+.vkLink:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) inset;
+    background: linear-gradient(45deg, #1300e8 0%, #00d6ff 60%, #6bffef 80%);
+}
+
+.instagramLink:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) inset;
+    background: linear-gradient(
+        45deg,
+        #fff600 0%,
+        #ff9400 30%,
+        #ff4100 60%,
+        #ff008c 70%,
+        #a500ff 100%
+    );
+}
+
+.mapcontainer {
+    width: 60%;
+    height: 100%;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.mapFirstDiv {
+    position: relative;
+    overflow: hidden;
+}
+
+.mapASity {
+    color: #eee;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+}
+
+.mapLinkAdress {
+    color: #eee;
+    font-size: 12px;
+    position: absolute;
+    top: 14px;
+}
+
+.mapFrame {
+    position: relative;
+    height: 50vh;
+    border: 0;
+    border-radius: 4px;
+}

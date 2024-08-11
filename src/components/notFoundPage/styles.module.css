@@ -1,0 +1,45 @@
+.container {
+    padding: 20px 19%;
+    background-color: #484283;
+    height: 81vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.frontText {
+    font-size: 36px;
+    width: 50%;
+    margin-bottom: 5vh;
+}
+
+.goHomeBTN {
+    color: white;
+    text-align: center;
+    z-index: 2;
+    width: 30%;
+    background-color: #f14f4f;
+    padding: 15px 33px;
+    font-size: 400;
+    font-size: 11px;
+    border-radius: 4px;
+}
+.goHomeBTN:hover {
+    background-color: #cc4949;
+    color: white;
+    text-align: center;
+}
+
+.bacgroundText {
+    text-align: right;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.12);
+    font-size: 140px;
+    width: 30vw;
+    position: absolute;
+    top: 20vh;
+    left: 50vw;
+    cursor: default;
+    margin: 0;
+}

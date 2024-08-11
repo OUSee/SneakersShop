@@ -1,0 +1,51 @@
+.aboutContainer {
+    width: 100%;
+    height: fit-content;
+    background-color: #484283;
+    background-image: url("../src/assets/sircles.png");
+    background-position-x: 0;
+    background-repeat: no-repeat;
+    background-size: 385px;
+}
+
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.infoContainer {
+    color: white;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 14px;
+}
+
+.infoHeader {
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.infoQuote {
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.infoQuoteAuthor {
+    font-weight: 700;
+    font-size: 14px;
+    align-self: flex-end;
+}
+
+.picContainer {
+    width: 60%;
+}
+
+.abotPic {
+    width: 100%;
+    height: 100%;
+}

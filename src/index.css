@@ -1,0 +1,224 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #ffffff;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+hr{
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 1);
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+a:hover {
+    color: #535bf2;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.content {
+    padding: 0px 19% 0 19%;
+    box-sizing: border-box;
+}
+
+.component {
+    margin: 500px 0 500px 0;
+}
+
+.fillerScquare {
+    background-color: bisque;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+button {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a00;
+    cursor: pointer;
+}
+button:hover {
+	background-color: #1a1a1a00;
+}
+button:focus,
+button:focus-visible {
+    outline: 3px auto rgb(217, 217, 217);
+}
+
+button:active{
+	background-color: #b2b5bb;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    a:hover {
+        color: #747bff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
+}
+
+@font-face {
+    font-family: interRegular;
+    src: url("./assets/fonts/intro_regular.ttf");
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+* {
+    font-family: interRegular;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* checkboxes */
+
+/* Base for label styling */
+	.defaultCheckBox:not(:checked),
+	.defaultCheckBox:checked {
+		position: absolute;
+		left: 0;
+		opacity: 0.01;
+	}
+	.defaultCheckBox:not(:checked) + label,
+	.defaultCheckBox:checked + label {
+		position: relative;
+		padding-left: 2.3em;
+		line-height: 1.7;
+		cursor: pointer;
+	}
+
+	/* checkbox aspect */
+	.defaultCheckBox:not(:checked) + label:before,
+	.defaultCheckBox:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1.4em;
+		height: 1.4em;
+		border: 1px solid #dbbba9;
+		background: #ffffff00;
+		border-radius: .2em;
+		box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(203, 34, 237, .2);
+		-webkit-transition: all .275s;
+				transition: all .275s;
+	}
+
+	/* checked mark aspect */
+	.defaultCheckBox:not(:checked) + label:after,
+	.defaultCheckBox:checked + label:after {
+		content: url('./assets/checkBoxInsideIcon.svg');
+		position: absolute;
+		top: .300em;
+		left: .18em;
+		color: #dbbba9;
+		line-height: 0;
+		-webkit-transition: all .2s;
+				transition: all .2s;
+	}
+
+	/* checked mark aspect changes */
+	.defaultCheckBox:not(:checked) + label:after {
+		opacity: 0;
+		-webkit-transform: scale(0) rotate(45deg);
+				transform: scale(0) rotate(45deg);
+	}
+
+	.defaultCheckBox:checked + label:after {
+		opacity: 1;
+		-webkit-transform: scale(1) rotate(0);
+				transform: scale(1) rotate(0);
+	}
+
+	/* Disabled checkbox */
+	.defaultCheckBox:disabled:not(:checked) + label:before,
+	.defaultCheckBox:disabled:checked + label:before {
+		box-shadow: none;
+		border-color: #bbb;
+		background-color: #e9e9e900;
+	}
+
+	.defaultCheckBox:disabled:checked + label:after {
+		color: #777;
+	}
+
+	.defaultCheckBox:disabled + label {
+		color: #aaa;
+	}
+
+	/* Accessibility */
+	.defaultCheckBox:checked:focus + label:before,
+	.defaultCheckBox:not(:checked):focus + label:before {
+		box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(159, 143, 73, 0.2);
+	}
+
+	/* range slider */
+
+

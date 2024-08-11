@@ -1,0 +1,234 @@
+.container {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: fit-content;
+    overflow-x: hidden;
+}
+
+.sliderContainer{
+    overflow-x: hidden;
+    padding: 28px 19%;
+}
+
+.sliderWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
+.sliderCard {
+    color: black;
+    box-sizing: border-box;
+    padding: 28px 70px;
+    flex-shrink: 0;
+    width: 100%;
+    background-color: #fff4ee;
+    border-radius: 14px;
+    text-align: start;
+    overflow-x: hidden;
+    transition: all 0.5 ease-in-out;
+}
+
+.sliderCardInsides {
+    color: black;
+}
+
+.cardTitle {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.cardDescription {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    margin-bottom: 7px;
+}
+
+.cardContent {
+    padding-top: 14px;
+    padding-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.cardFooter {
+    padding-top: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inactiveSlide{
+    max-width: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3 ease-in-out;
+}
+
+.activeSlide{
+    width: 100%;
+}
+
+.cardPagination {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+}
+
+.cardButton {
+    width: 148px;
+    padding: 12px 29px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(68, 75, 88, 1);
+    border-radius: 4px;
+    color: black;
+    font-size: 11px;
+    transition: all 0.3 ease-in-out;
+}
+
+.cardButton:hover {
+    border: 1px solid rgba(68, 75, 88, 1);
+    background-color: #444b58;
+    color: white;
+}
+
+
+
+.sliderContentTitle {
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: rgba(68, 75, 88, 1);
+}
+
+.sliderContentOptionsTable {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5%;
+    row-gap: 14px;
+}
+
+.sliderContentOptionsTableItem {
+    width: 30%;
+}
+
+.optionTableItemImg {
+    width: 100%;
+}
+
+.sliderCardOption {
+    top: -3px;
+    font-size: 11px;
+    position: relative;
+}
+
+
+.sizesOptions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    gap: 10px;
+    align-items: center;
+}
+
+.secondSlidePic {
+    width: 100%;
+    margin-top: 15px;
+    height: 33.1vh;
+}
+
+.sliderCardTextArea {
+    width: 100%;
+    height: 38vh;
+    resize: none;
+    background-color: #ffffff;
+    padding: 14px;
+    color: black;
+    border: 0;
+    border-radius: 10px;
+}
+
+.sliderCardTextArea:focus{
+    outline: white;
+}
+
+.sliderCardTextArea::placeholder {
+    color: rgba(219, 187, 169, 1);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.userInfoCard{
+    background-color: #dbbba9;
+    color: white;
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 60%;
+}
+
+.userInfoTitle{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.userInfoDescription{
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.userInfoInput{
+    padding: 14px;
+    background-color: white;
+    border: 0;
+    width: 83%;
+    margin-bottom: 7px;
+    border-radius: 4px;
+    color: black;
+}
+
+.userInfoInput::placeholder{
+    font-size: 11px;
+    color: rgba(178, 181, 187, 1);
+}
+
+.submitUserInfoButton{
+    margin-top: 7px;
+    background-color: #f14f4f;
+    border-radius: 4px;
+    width: 35%;
+    border: 0;
+}
+
+.submitUserInfoButton:hover{
+    background-color: #cc4949;
+    border: none;
+}
+
+.cardTitleV{
+    margin-top: 28px;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.userInfoDescriptionV{
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 17px;
+}
