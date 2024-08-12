@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { mapPrice, Sneaker } from '../../../types';
+import { Cart, mapPrice, Sneaker } from '../../../types';
 import styles from './styles.module.css';
 import { useEffect, useState } from 'react'
 import { AppDispatch, RootState } from '../../../redux/store';
@@ -8,6 +8,7 @@ import { updateCart } from '../../../redux/slices/cartsSlice';
 
 interface IListItem{
     item: Sneaker
+    handleDelete: ()=>void
 }
     
 export const CartSection = () => {
@@ -22,11 +23,23 @@ export const CartSection = () => {
         setCartTotalPrice(price);
     }
 
+    const handleDelete = (item: Sneaker) => {
+        var searchindex = cartState.items.indexOf(item);
+        let arr = cartState.items;
+        
+        const final = arr.filter((item: Sneaker) => {
+            if (searchindex != arr.indexOf(item) ) {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+        dispatch(updateCart({uid: cartState.uid, items: final} as Cart))
+    }
+
     useEffect(() => {
-
-        dispatch(updateCart(cartState))
         getPrice();
-
     }, [cartState])
     return ( 
         <div className={styles.container}>
@@ -51,7 +64,7 @@ export const CartSection = () => {
                     </label>
                     <ul className={styles.accordionBody}>
                         {cartState.items.map((item, i) => {
-                            return (<ListItem key={item.id + i} item={item} />)
+                            return (<ListItem key={item.id + i} item={item} handleDelete={()=>{handleDelete(item)}}/>)
                         })}
                     </ul>
                     <form className={styles.cartInputForm} action="" id='cartUserInfoForm'>
@@ -86,7 +99,7 @@ export const CartSection = () => {
 }
 
 
-const ListItem = ({item}: IListItem) => {
+const ListItem = ({item, handleDelete}: IListItem) => {
     return (
        <li className={styles.buysListItem}>
             <img className={styles.listItemImg} src={item.imgUrl} alt="item" />
@@ -94,7 +107,7 @@ const ListItem = ({item}: IListItem) => {
                 <h3 className={styles.listItemTitle}>{item.title}</h3>
                 <p className={styles.listItemPrice}>{ item.price }₽</p>
             </div>
-            <button className={styles.listItemDeleteBTN}>
+            <button onClick={handleDelete} className={styles.listItemDeleteBTN}>
                 <img className={styles.deleteIcon} src="../src/assets/trashCanIcon.svg" alt="del" />
             </button>   
     </li>

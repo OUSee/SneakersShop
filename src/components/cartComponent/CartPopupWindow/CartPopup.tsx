@@ -1,24 +1,43 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom';
-import { mapPrice, Sneaker } from '../../../types';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/store';
+import { Cart, mapPrice, Sneaker } from '../../../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../redux/store';
+import { updateCart } from '../../../redux/slices/cartsSlice';
 
 interface ICartPopup {
     onClose: () => void;
     items: Sneaker[]
 }
 interface ICartListItem{
+    handleDelete: () => void
     item: Sneaker
 }
     
 export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
     const cartState = useSelector((state: RootState) => state.cart.data)
     const [finalPrice, setFinalPrice] = useState(0)
+    const dispatch = useDispatch<AppDispatch>()
     const handleClose = () => {
         onClose();
     } 
+
+    const handleDelete = (delitem: Sneaker) => {
+
+        var searchindex = items.indexOf(delitem);
+        let arr = items;
+        
+        const final = arr.filter((item: Sneaker) => {
+            if (searchindex != arr.indexOf(item) ) {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+        dispatch(updateCart({uid: cartState.uid, items: final} as Cart))
+    }
 
     const getFinalPrice = () => {
         const price = cartState.items.reduce((acc, item: Sneaker) => {
@@ -61,8 +80,9 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
                     {items.map((item, i) => {
                         return (
                             <CartListItem
-                                key={item.id + "_"+ i}
+                                key={item.id + "_" + i}
                                 item={item}
+                                handleDelete={() => handleDelete(item)}
                             ></CartListItem>)
                     })}
                 </ul>
@@ -78,15 +98,7 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
     )
 }
 
-const CartListItem = ({item}: ICartListItem) => {
-    const handleDelete = () => {
-        const json = localStorage.getItem('cart')
-        if (json) {
-            const cart = JSON.parse(json);
-            const index = cart.items.findIndex((i: Sneaker) => i.id === item.id);
-            cart.items.slice()
-        }
-    }
+const CartListItem = ({item, handleDelete}: ICartListItem) => {
 
     return (
         <li className={styles.buysListItem}>

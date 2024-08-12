@@ -21,15 +21,19 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     const handleClose = () => {
         onClose();
     }   
+
     const handleAddToCart = () => {
-        const newCartInstance = {...cartState, items: {...[], sneaker}}
-        dispatch(updateCart(newCartInstance))
-    }
+        let newItems = [...cartState.items as Sneaker[], sneaker]
+        const newCartInstance = {
+            uid: cartState.uid,
+            items: newItems,
+        };
+        dispatch(updateCart(newCartInstance));
+    };
 
     const rate = () => {
         const rateContainer = document.querySelector('#rating');
         while (counter < sneaker.stars) {
-            console.log(counter)
             const star = document.createElement('span');
             star.innerHTML = '&#9733;'
             rateContainer?.appendChild(star)
@@ -123,7 +127,6 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     }
 
     useEffect(() => {
-        console.log(sneaker.stars)
         rate();
 
         if (magnifier == false) {
