@@ -12,15 +12,22 @@ interface IProductCard {
     
 export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
     const cartState = useSelector((state: RootState) => state.cart.data)
-    const cartStatus = useSelector((state: RootState) => state.cart.status)
     const dispatch = useDispatch<AppDispatch>()
     
     const { title, imgUrl, price} = sneaker;
 
     const handleAddToCart = () => {
-        const newCartInstance = {...cartState, uid: cartState.uid, items: {...[], sneaker}}
-        dispatch(updateCart(newCartInstance))
-    }
+        const newCartInstance = {
+            uid: cartState.uid,
+            items: [...cartState.items, sneaker],
+        };
+        
+        console.log("cartState", cartState);
+        console.log("newCartInstance", newCartInstance);
+        dispatch(updateCart(newCartInstance));
+    };
+    
+    
 
     return ( 
         <li className={styles.container}>

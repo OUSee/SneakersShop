@@ -1,24 +1,23 @@
 import styles from './styles.module.css'
 import { CartPopup } from '../cartComponent/CartPopupWindow/CartPopup'
-import { useEffect, useState } from 'react'
-import { Cart, PostCart } from '../../types'
+import { useState } from 'react'
+import { Cart, Sneaker } from '../../types'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../redux/store'
-import { getCart, postCart } from '../../redux/slices/cartsSlice'
+import { getCart } from '../../redux/slices/cartsSlice'
+
     
 export const HeaderComponent = () => {
     const [cartPopupOpen, setCartPopupOpen] = useState(false);
-    const state = useSelector((state: RootState) => state.cart.data)
-    const [cartItemsAmmount, setCartAmmount] = useState(0)
-
+    const cartState = useSelector((state: RootState) => state.cart.data)
     const handleCartPopupOpen = () => {
         setCartPopupOpen(true);
     }
     const handleCartPopupClose = () => {
         setCartPopupOpen(false);
     }
+    
 
-    useEffect(() => { setCartAmmount(state.items?.length)},[state])
     
     return ( 
         <header className={styles.container}>
@@ -43,11 +42,11 @@ export const HeaderComponent = () => {
                         />
                         </button>
                         <div className={styles.cartAmountIcon}>
-                            {cartItemsAmmount}
+                            {cartState.items.length > 0 ? cartState.items.length : 0}
                         </div>
                             </div>
                             {
-                                cartPopupOpen && <CartPopup items={state.items} onClose={ handleCartPopupClose } />
+                                cartPopupOpen && <CartPopup items={cartState.items} onClose={ handleCartPopupClose } />
                             }
                 </ul>
             </nav>

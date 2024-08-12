@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom';
-import { Sneaker } from '../../../types';
+import { mapPrice, Sneaker } from '../../../types';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
 
 interface ICartPopup {
     onClose: () => void;
@@ -12,17 +14,17 @@ interface ICartListItem{
 }
     
 export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
+    const cartState = useSelector((state: RootState) => state.cart.data)
     const [finalPrice, setFinalPrice] = useState(0)
     const handleClose = () => {
         onClose();
     } 
 
     const getFinalPrice = () => {
-        let sum = 0;
-        items.forEach(item => {
-            sum = sum + Number(item.price)
-        });
-        setFinalPrice(sum)
+        const price = cartState.items.reduce((acc, item: Sneaker) => {
+            return(acc += +item.price.replace(' ', ''))
+        }, 0)
+        setFinalPrice(price)
     }
 
     useEffect(() => {
@@ -56,10 +58,10 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
         <div className={styles.container} id='#popupContainer' onClick={handleClose}>
             <div className={styles.popupWindow}>
                 <ul className={styles.buysList}>
-                    {items.map((item) => {
+                    {items.map((item, i) => {
                         return (
                             <CartListItem
-                                key={item.id}
+                                key={item.id + "_"+ i}
                                 item={item}
                             ></CartListItem>)
                     })}
@@ -67,7 +69,7 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
                 <div className={styles.cartFooter}>
                     <div className={styles.cartInfo}>
                         <h3 className={styles.cartFinal}>Итого:</h3>
-                        <p className={styles.cartFinalPrice}>{finalPrice}₽</p>
+                        <p className={styles.cartFinalPrice}>{mapPrice(finalPrice)}₽</p>
                     </div>
                     <Link to='/cart' className={styles.cartBTN}>Перейти в корзину</Link>
                 </div>
@@ -78,11 +80,13 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
 
 const CartListItem = ({item}: ICartListItem) => {
     const handleDelete = () => {
-         // delete item from cart
+        const json = localStorage.getItem('cart')
+        if (json) {
+            const cart = JSON.parse(json);
+            const index = cart.items.findIndex((i: Sneaker) => i.id === item.id);
+            cart.items.slice()
+        }
     }
-    // const viewSneaker = () => {
-
-    // }
 
     return (
         <li className={styles.buysListItem}>

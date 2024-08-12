@@ -1,13 +1,11 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css'
 import { Slider } from './Slider';
-import { Filter } from '../../../types';
-import { filter } from '@chakra-ui/react';
+import { Filter, Sneaker } from '../../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../redux/store';
-import { ProductsSlice } from '../../../redux/slices/productsSlice';
-// import noUiSlider from 'nouislider';
-// import 'nouislider/dist/nouislider.css';
+import { getProducts, ProductsSlice } from '../../../redux/slices/productsSlice';
+
 
 
     
@@ -15,18 +13,12 @@ export const FilterComponent = () => {
 
     const [prices, setPrice] = useState({ min: 0,  max: 26000});
     const sizes = [35, 36, 37, 38, 39, 40, 41, 42, 43];
+    const appDispatch = useDispatch<AppDispatch>()
     const dispatch = useDispatch()
     const productsState = useSelector((state: RootState) => state.products.data)
 
-
-    //create filter object
-
-    const createFilterInstance = (filter : Filter) => {
-        dispatch(ProductsSlice.actions.filterData(filter))
-    }
-    
     const formFilter = (event: any) => {
-        event.preventDefault();
+         event.preventDefault();
         const form = new FormData(event.target);
         const data = Object.fromEntries(form);
         const newFilter: Filter = {
@@ -46,9 +38,43 @@ export const FilterComponent = () => {
                 size43: data.size43 === 'on'
             }
         }
-        createFilterInstance(newFilter)
-        console.log(data)
+
+        const getSizes = (filter: Filter) => {
+                let sizes: number[] = [];
+                if (filter.sizes.size35) sizes.push(35);
+                if (filter.sizes.size36) sizes.push(36);
+                if (filter.sizes.size37) sizes.push(37);
+                if (filter.sizes.size38) sizes.push(38);
+                if (filter.sizes.size39) sizes.push(39);
+                if (filter.sizes.size40) sizes.push(40);
+                if (filter.sizes.size41) sizes.push(41);
+                if (filter.sizes.size42) sizes.push(42);
+                if (filter.sizes.size43) sizes.push(43);
+                return sizes;
+        };
+        const priceFilteredProducts = productsState.filter((item: Sneaker) => {
+            if (
+                (newFilter.start_price < Number(item.price.replace(' ', ''))) && (newFilter.end_price > Number(item.price.replace(' ', '')))
+            ) {
+                return true
+            }
+            else return false
+        })
+        const genderFilteredProducts = priceFilteredProducts.filter((item: Sneaker) => {
+            if ((newFilter.men && item.gender == "Мужской") || (newFilter.women && item.gender == 'Женский')) { 
+                return true
+            }
+            else return false
+        })
+        const sizeFilteredProducts = genderFilteredProducts.filter((item: Sneaker) => {
+            if (getSizes(newFilter).some(size => item.sizes.includes(size))) { return true }
+            else return false
+        })
+
+        
+        dispatch(ProductsSlice.actions.setData(sizeFilteredProducts))
     }
+
     const sliderChange = (val: number[]) => {
         setPrice({ ...prices, min: val[0], max: val[1]})
     }
@@ -61,10 +87,11 @@ export const FilterComponent = () => {
         setPrice({ ...prices, max: (e.target as HTMLInputElement).valueAsNumber })
     }
 
+    const returnToDefault = () => {
+        appDispatch(getProducts())
+    }
 
-    useEffect(() => {
-        
-    },[prices])
+
     return ( 
         <form onSubmit={formFilter} className={styles.container}>
             <h2 className={styles.filterTitle}>Подбор по&nbsp;параметрам</h2>
@@ -99,7 +126,7 @@ export const FilterComponent = () => {
                 })}
             </div>
             <button type='submit' className={styles.filterBTN}>Применить</button>
-            <button type='reset' className={styles.setFilterToDefault}>сбросить</button>
+            <button type='reset' className={styles.setFilterToDefault} onClick={returnToDefault}>сбросить</button>
         </form>
     )
 }

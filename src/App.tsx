@@ -15,9 +15,8 @@ import { Cart } from "./types"
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
-  const cartState = useSelector((state: RootState) => state.cart.data)
 
-  const checkifCartExists = async () => {
+  const checkifCartExists = () => {
         const generateUID = () => {
             let uid = Math.random() * Math.pow(36, 6) << 0;
             let struid = uid.toString() 
@@ -25,14 +24,10 @@ function App() {
             return struid.slice(-6);
         }
 
-        const json = await localStorage.getItem('cart');
-        console.log('json',json)
+        const json = localStorage.getItem('cart');
         if (json !== null) {
             let cart: Cart = JSON.parse(json)
-            console.log('cart: ', cart)
-            await dispatch(getCart(cart.uid))  
-            cart.items = cartState.items
-            localStorage.setItem('cart', JSON.stringify(cart))
+            dispatch(getCart(cart.uid))  
         }
         else {
             const newCart: Cart = {
@@ -40,7 +35,7 @@ function App() {
                 items: []
             }
           localStorage.setItem('cart', JSON.stringify(newCart));
-          dispatch(postCart(newCart))
+          dispatch(postCart({uid: newCart.uid, items: newCart.items}))
         }
     }
 
