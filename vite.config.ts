@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: "https://github.com/OUSee/SneakersShop", // github base url
+    base: "https://github.com/OUSee/SneakersShop.git", // github base url
 });
