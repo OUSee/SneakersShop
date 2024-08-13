@@ -5,7 +5,7 @@ import {
   RangeSliderThumb,
   RangeSliderMark,
 } from '@chakra-ui/slider'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface IRangeSlider {
   value: {min: number, max: number}

@@ -1,5 +1,4 @@
 import styles from './styles.module.css'
-import  pic  from '../../assets/aboutPic.png'
     
 export const AboutSection = () => {
     return ( 

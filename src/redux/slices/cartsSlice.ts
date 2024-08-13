@@ -1,4 +1,3 @@
-import { Sneaker } from './../../types';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosinstanse } from "../axiosInstance";
 import { Cart, Endpoints, Status } from "../../types";
