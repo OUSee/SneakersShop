@@ -129,7 +129,7 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     useEffect(() => {
         rate();
 
-        if (magnifier == false) {
+        if (magnifier == false && screen.width > 960) {
             magnify('popupImg', 2)
         }
 

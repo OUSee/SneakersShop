@@ -193,3 +193,54 @@
 .characteristicslist{
     font-size: 14px;
 }
+
+@media screen and (max-width: 960px) {
+    .container{
+        padding: 14px 5%;
+        overflow-y: scroll;
+    }
+
+    .popupWindow{
+        height: fit-content;
+        overflow-y: scroll;
+    }
+    
+    .topSection,
+    .bottomSection{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .descriptionParagraph{
+        width: 100%;
+        text-overflow: clip;
+    }
+    .bottomSectionLeft,
+    .bottomSectionRight {
+        width: 100%;
+    }
+    .characteristicslist{
+        width: 100%;
+    }
+    .productImage{
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .topAnnotationArticul, .topAnnotationAmmount{
+        font-size: 8px;
+    }
+    .rating{
+        margin-bottom: 11px;
+    }
+    
+.sizesList {
+    gap: 8px;
+}
+
+.sizesListitem {
+    font-size: 7px;
+    padding: 3px 14px;
+    border: 1px solid rgba(178, 181, 187, 1);
+    border-radius: 4px;
+}
+}

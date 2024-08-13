@@ -1,9 +1,6 @@
-import { useDispatch } from 'react-redux'
 import { FAQAccordion } from './faqAccordion'
 import styles from './styles.module.css'
-import { useEffect } from 'react'
-import { getProducts } from '../../redux/slices/productsSlice'
-import { AppDispatch } from '../../redux/store'
+
     
 export const FAQSection = () => {
     return ( 
@@ -55,14 +52,3 @@ export const FAQSection = () => {
     )
 }
 
-
-const exampleChunk = () => {
-    const dispatch = useDispatch<AppDispatch>();
-
-  //  dispatch(ProductsSlice.actions.getFilters())
-
-    useEffect(() => {
-        dispatch(getProducts())
-    })
-
-}

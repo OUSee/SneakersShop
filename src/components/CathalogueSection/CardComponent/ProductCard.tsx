@@ -28,16 +28,16 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
     };
     
     const tryOpenPopup = () => {
-        if (screen.width < 960) {
+        if (screen.width <= 960) {
             openPopup();
         }
     }
-    
+
 
     return ( 
         <li className={styles.container} onClick={tryOpenPopup}>
-            <img className={styles.productPhoto} src={imgUrl} alt="photo" />
-            {screen.width < 960 && <div className={styles.hoverOptions}>
+            <img id={`sneaker${sneaker.id}`} className={styles.productPhoto} src={imgUrl} alt="photo" />
+            {screen.width > 960 && <div className={styles.hoverOptions}>
                 <button className={styles.hoverButton} onClick={openPopup}>
                     <img src="../src/assets/wiewIcon.svg" alt="W" width='20em' height='20em'/>
                 </button>
