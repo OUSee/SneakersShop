@@ -43,27 +43,27 @@ export const CathalogueSection = () => {
     return ( 
         <div id='cathalogue'className={styles.cathalogueContainer} >
             <div className='content'>
-                {status == Status.SUCSESS && <><h2 className={styles.sectionTitle}>Каталог</h2>
+               <h2 className={styles.sectionTitle}>Каталог</h2>
                 <div className={styles.menuGroup}>
                     <div className={styles.filterContainer}>
                         <FilterComponent />
                     </div>
+                    {status == Status.SUCSESS &&
                     <div className={styles.cardsCollectionContainer}>
                         <ul className={styles.cardsList}>
                             {
                                 state.slice(0, viewMore ? state.length : defaultView).map((sneaker)=>{return <ProductCard key={sneaker.id} sneaker={sneaker} openPopup={()=>{openPopup(sneaker)}}></ProductCard>})
                             }
                         </ul>
-                        {!viewMore && <button onClick={showAll} className={styles.wiewMoreBTN}>Показать еще</button>} 
-                        
-                    </div>
-                    </div>
-                </>}
-                {status == Status.LOADING && <>
-                    <div className={styles.loaderContainer}>
-                        <Preloader />
-                    </div>
-                </>}
+                        {!viewMore && state.length > 6 && <button onClick={showAll} className={styles.wiewMoreBTN}>Показать еще</button>} 
+                        { state.length == 0 && <h3>Ничего не найдено</h3> }
+                        </div>}
+                    {status == Status.LOADING && <>
+                        <div className={styles.loaderContainer}>
+                            <Preloader />
+                        </div>
+                    </>}
+                </div>
                 {status == Status.ERROR && <ErrorSection />}
             </div>
             {popupVisible && popupSneaker && <CardPopup sneaker={popupSneaker} onClose={handleClosePopup}/> }
