@@ -8,6 +8,7 @@ import { AppDispatch, RootState, store } from '../../redux/store'
 import { getProducts } from '../../redux/slices/productsSlice'
 import { Sneaker, Status } from '../../types'
 import { Preloader } from '../preloader/Preloader'
+import { ErrorSection } from '../errSection/errSection'
     
 export const CathalogueSection = () => {
     const [popupVisible, setPopupVisible] = useState(false);
@@ -63,6 +64,7 @@ export const CathalogueSection = () => {
                         <Preloader />
                     </div>
                 </>}
+                {status == Status.ERROR && <ErrorSection />}
             </div>
             {popupVisible && popupSneaker && <CardPopup sneaker={popupSneaker} onClose={handleClosePopup}/> }
         </div>
