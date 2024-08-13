@@ -5,6 +5,8 @@
     gap: 7px;
     flex: 0 0 32%;
     transition: all 0.3s ease-in-out;
+    height: fit-content;
+    margin-bottom: 28px;
 }
 
 .container:hover {

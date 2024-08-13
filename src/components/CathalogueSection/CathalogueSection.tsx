@@ -58,7 +58,11 @@ export const CathalogueSection = () => {
                     </div>
                     </div>
                 </>}
-                {status == Status.LOADING && <Preloader />}
+                {status == Status.LOADING && <>
+                    <div className={styles.loaderContainer}>
+                        <Preloader />
+                    </div>
+                </>}
             </div>
             {popupVisible && popupSneaker && <CardPopup sneaker={popupSneaker} onClose={handleClosePopup}/> }
         </div>
