@@ -25,6 +25,7 @@
     width: 25%;
     height: 417px;
     z-index: 1;
+    margin-right: 14px;
 }
 
 .cardsCollectionContainer {
@@ -66,4 +67,24 @@
     place-items: center;
     min-height: 200px;
     min-width: 100%;
+}
+
+@media screen and (max-width: 960px) {
+
+    .menuGroup {
+        display: block;
+        gap: 25px;
+    }
+    .filterContainer {
+        width: 100%;
+        margin-bottom: 150px;
+    }
+
+    .cardsCollectionContainer {
+        width: 100%;
+    }
+
+    .cardsList {
+        flex-basis: 0 0 50%;
+    }
 }

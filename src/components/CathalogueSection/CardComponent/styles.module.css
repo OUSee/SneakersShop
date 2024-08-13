@@ -71,3 +71,17 @@
     background-color: #31343b;
     box-shadow: 0 0 10px white inset;
 }
+
+
+@media screen and (max-width: 960px){
+    
+.productTitle {
+    font-size: 8px;
+    color: black;
+}
+
+.productPrice {    
+    font-size: 11px;
+    color: black;
+}
+}

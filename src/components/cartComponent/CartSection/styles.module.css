@@ -1,6 +1,7 @@
 .container {
-    padding: 7.34vh 19%;
+    padding: 45px 19%;
     background-color: #484283;
+    height: fit-content;
 }
 
 .cartHeader {
@@ -11,15 +12,18 @@
     background-color: white;
     border-radius: 5px 5px 0px 0px;
     padding: 28px;
+    border-color: none;
 }
 
 .orderNumber {
+    text-align: end;
     font-size: 11px;
     font-weight: 400;
     color: rgba(178, 181, 187, 1);
 }
 
 .orderInfoContainer {
+    border-color: none;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -67,7 +71,6 @@
     display: flex;
     width: 100px;
     margin-left: auto;
-    margin-right: 5px;
     align-items: center;
     justify-content: center;
 }
@@ -169,4 +172,59 @@
     background-color: white;
     border-radius: 0px 0px 5px 5px;
     padding: 183px;
+}
+
+/* adaptations */
+/* uwide */
+@media only screen and (min-width: 1440px){
+    .container{
+        padding: 230px 19%;
+        font-size: larger;
+        height: fit-content;
+    }
+}
+/* 14 wide */
+@media only screen and (max-width: 1440px) and (min-width: 1201px){
+    .container{
+        padding: 100px 19%;
+        min-height: fit-content;
+    }
+}
+/* wide */
+@media only screen and (max-width: 1200px) and (min-width: 960px){
+    .container{
+        padding: 45px 19%;
+        height: fit-content;
+    }
+}
+/*  */
+@media only screen and (max-width: 640px) and (min-width: 320px){
+    .container{
+        padding: 45px 10%;
+        min-height: fit-content;
+    }
+
+    .cartHeader{
+        padding: 14px;
+    }
+
+    .orderInfoContainer{
+        padding: 0 14px;
+    }
+
+    .listItemTitle{
+        font-size: 8px;
+    }
+
+    .listItemPrice{
+        font-size: 11px;
+    }
+
+    .listItemDeleteBTN{
+        width: 25px;
+    }
+
+    .boldtxt{
+        font-size: 14px;
+    }
 }

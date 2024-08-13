@@ -6,7 +6,7 @@ export const FooterComponent = () => {
             <div className='content'>
                 <div className={styles.rowOrderBox}>
                     <h1 className={styles.headTitle}>Sneak Max</h1>
-                    <nav className={styles.headNav}>
+                    {screen.width > 640 && <nav className={styles.headNav}>
                         <ul className={styles.headNavList}>
                             <a className={styles.Link} href="/#cathalogue">Каталог</a>
                             <a className={styles.Link} href="/#about">О нас</a>
@@ -16,7 +16,7 @@ export const FooterComponent = () => {
                             <a className={styles.Link} href="/#contacts">Контакты</a>
                             <a className={styles.Link} href="/#faq">FAQ</a>
                         </ul>
-                    </nav>
+                    </nav>}
                 </div>
             </div>
         </footer>

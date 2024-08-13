@@ -48,3 +48,13 @@
     color: white;
     cursor: pointer;
 }
+
+
+
+@media screen and (max-width: 640px) {
+    .rowOrderBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

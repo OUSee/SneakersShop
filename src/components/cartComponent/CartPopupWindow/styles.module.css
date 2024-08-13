@@ -137,3 +137,12 @@
 .emptyCart{
     width: 250px;
 }
+
+@media screen and (max-width: 960px) {
+    .popupWindow{
+        width: 90%;
+        height: 75%;
+        position: fixed;
+        left: -55vw;
+    }
+}

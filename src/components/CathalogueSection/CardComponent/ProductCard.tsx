@@ -27,19 +27,24 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
         dispatch(updateCart(newCartInstance));
     };
     
+    const tryOpenPopup = () => {
+        if (screen.width < 960) {
+            openPopup();
+        }
+    }
     
 
     return ( 
-        <li className={styles.container}>
+        <li className={styles.container} onClick={tryOpenPopup}>
             <img className={styles.productPhoto} src={imgUrl} alt="photo" />
-            <div className={styles.hoverOptions}>
+            {screen.width < 960 && <div className={styles.hoverOptions}>
                 <button className={styles.hoverButton} onClick={openPopup}>
                     <img src="../src/assets/wiewIcon.svg" alt="W" width='20em' height='20em'/>
                 </button>
                 <button className={styles.hoverButton} onClick={handleAddToCart}>
                     <img src="../src/assets/cartIcon.svg" alt="C" width='20em' height='20em'/>
                 </button>
-            </div>
+            </div>}
             <h3 className={styles.productTitle}>{title}</h3>
             <p className={styles.productPrice}>{price} &#8381;</p>
         </li>

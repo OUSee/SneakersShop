@@ -1,0 +1,48 @@
+
+.menuIcon {
+  margin  : 20px auto;
+  width   : 20px;
+  height  : 14px;
+  cursor  : pointer;
+  position: relative;
+}
+
+.menuIcon span {
+  background-color: white;
+  height          : 2px;
+  position        : absolute;
+  width           : 100%;
+  left            : 0;
+  transition      : all 0.3s ease;
+  border-radius   : 10px;
+}
+
+.menuIcon span:first-child {
+  top: 0;
+}
+
+.menuIcon span:nth-child(2) {
+  top: 6px;
+}
+
+.menuIcon span:last-child {
+  top: 12px;
+}
+
+.menuIcon:active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuIcon:active span:first-child,
+.menuIcon:active span:last-child {
+  top             : 6px;
+  background-color: red;
+}
+
+.menuIcon:active span:first-child {
+  transform: rotate(45deg);
+}
+
+.menuIcon:active span:last-child {
+  transform: rotate(-45deg);
+}

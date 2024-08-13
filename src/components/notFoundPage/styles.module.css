@@ -43,3 +43,15 @@
     cursor: default;
     margin: 0;
 }
+
+@media screen and (max-width: 960px) {
+    .bacgroundText{
+        font-size: 20px;
+    }
+    .frontText{
+        font-size: 14px;
+    }
+    .goHomeBTN{
+        width: 100%;
+    }
+}

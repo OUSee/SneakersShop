@@ -213,6 +213,7 @@
     border-radius: 4px;
     width: 35%;
     border: 0;
+    padding: 7px 14px;
 }
 
 .submitUserInfoButton:hover{
@@ -231,4 +232,26 @@
     font-size: 13px;
     font-weight: 400;
     margin-bottom: 17px;
+}
+
+@media screen and (max-width: 960px) {
+    .sliderContainer{
+        padding: 28px 5%;
+    }
+    .sliderCard{
+        padding: 14px;
+        height: fit-content;
+    }
+    .sizesOptions{
+        flex-wrap: wrap;
+    }
+    .userInfoCard{
+        width: 100%;
+    }
+    .userInfoInput{
+        width: 100%;
+    }
+    .submitUserInfoButton{
+        width: 100%;
+    }
 }

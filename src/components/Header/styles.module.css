@@ -19,18 +19,12 @@
     margin: 0%;
 }
 
-.headNav {
-}
-
 .headNavList {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     gap: 28px;
-}
-
-.cartIcon {
 }
 
 .Link {
@@ -66,10 +60,50 @@
     border-radius: 50%;
     width: 14px;
     height: 14px;
-    padding: 1px; 
+    padding: 1px;
     top: 10px;
     left: -10px;
     text-decoration: none;
     cursor: pointer;
 }
 
+.headNavListMobile{
+    display: flex;
+    gap: 14px;
+}
+
+.headNavListhidden{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 960px) {
+    .headNavList {
+        gap: 14px;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 640px) {
+    .headNavList {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .rowOrderBox {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 640) {
+	.content{
+		padding: 0px 5% 0 5%;
+	}
+}

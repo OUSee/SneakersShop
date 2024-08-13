@@ -59,7 +59,8 @@
     margin-top: 50px;
     display: flex;
     flex-direction: row;
-    gap: 42px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .askQuestionForm {
@@ -71,6 +72,7 @@
     border-radius: 4px;
     padding: 28px 14px;
     height: fit-content;
+    width: 40%;
 }
 
 .askFormTitle {
@@ -120,7 +122,6 @@
     gap: 14px;
     align-items: center;
     width: 35vw;
-    height: 50vh;
 }
 
 .instaGrouplogo {
@@ -145,5 +146,20 @@
     gap: 11px;
 }
 
-.instaGalaryItemImg {
+@media screen and (max-width: 960px) {
+    .accordionContainer{
+        width: 100%;
+        padding: 0;
+    }
+    .secondSection{
+        display: flex;
+        flex-direction: column;
+    }
+    .askQuestionForm{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .instaGroup{
+        width: 100%;
+    }
 }
