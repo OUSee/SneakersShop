@@ -3,8 +3,6 @@ import { Sneaker } from '../../../types'
 import styles from './styles.module.css'
 import { AppDispatch, RootState } from '../../../redux/store';
 import { updateCart } from '../../../redux/slices/cartsSlice';
-import viewIcon from '../../../assets/wiewIcon.svg'
-import cartIcon from '../../../assets/cartIcon.svg'
 import { ViewIcon } from '../../icons/viewIcon';
 import { CartIcon } from '../../icons/cartIcon';
 
