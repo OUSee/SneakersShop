@@ -33,7 +33,7 @@
 
 .accordionlabel::after {
     margin-left: auto;
-    content: url("./src/assets/plusIcon.svg");
+    content: url("../../assets/plusIcon.svg");
     transition: all 0.5s ease;
 }
 

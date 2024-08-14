@@ -34,19 +34,39 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
     }
 
 
-    return ( 
+    return (
         <li className={styles.container} onClick={tryOpenPopup}>
-            <img id={`sneaker${sneaker.id}`} className={styles.productPhoto} src={imgUrl} alt="photo" />
-            {screen.width > 960 && <div className={styles.hoverOptions}>
-                <button className={styles.hoverButton} onClick={openPopup}>
-                    <img src="../src/assets/wiewIcon.svg" alt="W" width='20em' height='20em'/>
-                </button>
-                <button className={styles.hoverButton} onClick={handleAddToCart}>
-                    <img src="../src/assets/cartIcon.svg" alt="C" width='20em' height='20em'/>
-                </button>
-            </div>}
+            <img
+                id={`sneaker${sneaker.id}`}
+                className={styles.productPhoto}
+                src={imgUrl}
+                alt="photo"
+            />
+            {screen.width > 960 && (
+                <div className={styles.hoverOptions}>
+                    <button className={styles.hoverButton} onClick={openPopup}>
+                        <img
+                            src="../../assets/wiewIcon.svg"
+                            alt="W"
+                            width="20em"
+                            height="20em"
+                        />
+                    </button>
+                    <button
+                        className={styles.hoverButton}
+                        onClick={handleAddToCart}
+                    >
+                        <img
+                            src="../../assets/cartIcon.svg"
+                            alt="C"
+                            width="20em"
+                            height="20em"
+                        />
+                    </button>
+                </div>
+            )}
             <h3 className={styles.productTitle}>{title}</h3>
             <p className={styles.productPrice}>{price} &#8381;</p>
         </li>
-    )
+    );
 }

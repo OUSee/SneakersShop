@@ -101,15 +101,19 @@ export const CartSection = () => {
 
 const ListItem = ({item, handleDelete}: IListItem) => {
     return (
-       <li className={styles.buysListItem}>
+        <li className={styles.buysListItem}>
             <img className={styles.listItemImg} src={item.imgUrl} alt="item" />
             <div className={styles.listItemInfo}>
                 <h3 className={styles.listItemTitle}>{item.title}</h3>
-                <p className={styles.listItemPrice}>{ item.price }₽</p>
+                <p className={styles.listItemPrice}>{item.price}₽</p>
             </div>
             <button onClick={handleDelete} className={styles.listItemDeleteBTN}>
-                <img className={styles.deleteIcon} src="../src/assets/trashCanIcon.svg" alt="del" />
-            </button>   
-    </li>
-    )
+                <img
+                    className={styles.deleteIcon}
+                    src="../../assets/trashCanIcon.svg"
+                    alt="del"
+                />
+            </button>
+        </li>
+    );
 }

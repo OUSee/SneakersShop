@@ -29,68 +29,147 @@ export const HeaderComponent = () => {
         else setMenuView(true)
     }
     
-    return ( 
+    return (
         <header className={styles.container}>
-            <div className='content'>
+            <div className="content">
                 <div className={styles.rowOrderBox}>
-            <h1 className={styles.headTitle}>Sneak Max</h1>
-            <nav className={styles.headNav}>
-                {screen.width > 640 && <ul className={styles.headNavList}>
-                    <a className={styles.Link} href="/SneakersShop/#cathalogue">Каталог</a>
-                    <a className={styles.Link} href="/SneakersShop/#about">О нас</a>
-                    <a className={styles.Link} href="/SneakersShop/#select">Подбор Товара</a>
-                    <a className={styles.Link} href="/SneakersShop/#crew">Наша Комада</a>
-                    <a className={styles.Link} href="/SneakersShop/#main">Доставка товара</a>
-                    <a className={styles.Link} href="/SneakersShop/#contacts">Контакты</a>
-                    <a className={styles.Link} href="/SneakersShop/#faq">FAQ</a>
-                    <div className={styles.cartContainer}>
-                        <button className={styles.Link} onClick={() => { handleCartPopupOpen() }} >
-                        Корзина
-                        <img 
-                            className={styles.cartIcon}
-                            src="./src/assets/cartIcon.svg"
-                        />
-                        </button>
-                        <div className={styles.cartAmountIcon}>
-                            {cartState.items.length > 0 ? cartState.items.length : 0}
-                        </div>
-                            </div>
-                            {
-                                cartPopupOpen && <CartPopup items={cartState.items} onClose={ handleCartPopupClose } />
-                            }
-                        </ul>}
-                        {screen.width < 640 &&
-                            <div className={styles.headNavListMobile}>
-                                <Burger onClick={viewMenu}/>
+                    <h1 className={styles.headTitle}>Sneak Max</h1>
+                    <nav className={styles.headNav}>
+                        {screen.width > 640 && (
+                            <ul className={styles.headNavList}>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#cathalogue"
+                                >
+                                    Каталог
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#about"
+                                >
+                                    О нас
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#select"
+                                >
+                                    Подбор Товара
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#crew"
+                                >
+                                    Наша Комада
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#main"
+                                >
+                                    Доставка товара
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#contacts"
+                                >
+                                    Контакты
+                                </a>
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#faq"
+                                >
+                                    FAQ
+                                </a>
                                 <div className={styles.cartContainer}>
-                                <button className={styles.Link} onClick={() => { handleCartPopupOpen() }} >
-                                    Корзина
-                                    <img 
-                                        className={styles.cartIcon}
-                                        src="./src/assets/cartIcon.svg"
-                                    />
-                                </button>
-                                <div className={styles.cartAmountIcon}>
-                                    {cartState.items.length > 0 ? cartState.items.length : 0}
+                                    <button
+                                        className={styles.Link}
+                                        onClick={() => {
+                                            handleCartPopupOpen();
+                                        }}
+                                    >
+                                        Корзина
+                                        <img
+                                            className={styles.cartIcon}
+                                            src="../../assets/cartIcon.svg"
+                                        />
+                                    </button>
+                                    <div className={styles.cartAmountIcon}>
+                                        {cartState.items.length > 0
+                                            ? cartState.items.length
+                                            : 0}
+                                    </div>
                                 </div>
+                                {cartPopupOpen && (
+                                    <CartPopup
+                                        items={cartState.items}
+                                        onClose={handleCartPopupClose}
+                                    />
+                                )}
+                            </ul>
+                        )}
+                        {screen.width < 640 && (
+                            <div className={styles.headNavListMobile}>
+                                <Burger onClick={viewMenu} />
+                                <div className={styles.cartContainer}>
+                                    <button
+                                        className={styles.Link}
+                                        onClick={() => {
+                                            handleCartPopupOpen();
+                                        }}
+                                    >
+                                        Корзина
+                                        <img
+                                            className={styles.cartIcon}
+                                            src="../../assets/cartIcon.svg"
+                                        />
+                                    </button>
+                                    <div className={styles.cartAmountIcon}>
+                                        {cartState.items.length > 0
+                                            ? cartState.items.length
+                                            : 0}
+                                    </div>
+                                </div>
+                                {cartPopupOpen && (
+                                    <CartPopup
+                                        items={cartState.items}
+                                        onClose={handleCartPopupClose}
+                                    />
+                                )}
                             </div>
-                            {
-                                cartPopupOpen && <CartPopup items={cartState.items} onClose={ handleCartPopupClose } />
-                            }
-                            </div>
-                        }
-            </nav>
+                        )}
+                    </nav>
                 </div>
-                {menuView && <div className={styles.headNavListhidden}>
-                            <a className={styles.Link} href="/SneakersShop/#cathalogue">Каталог</a>
-                    <a className={styles.Link} href="/SneakersShop/#about">О нас</a>
-                    <a className={styles.Link} href="/SneakersShop/#select">Подбор Товара</a>
-                    <a className={styles.Link} href="/SneakersShop/#crew">Наша Комада</a>
-                    <a className={styles.Link} href="/SneakersShop/#main">Доставка товара</a>
-                    <a className={styles.Link} href="/SneakersShop/#contacts">Контакты</a>
-                    <a className={styles.Link} href="/SneakersShop/#faq">FAQ</a>
-                        </div>}
-    </div>
-    </header>
-    )
+                {menuView && (
+                    <div className={styles.headNavListhidden}>
+                        <a
+                            className={styles.Link}
+                            href="/SneakersShop/#cathalogue"
+                        >
+                            Каталог
+                        </a>
+                        <a className={styles.Link} href="/SneakersShop/#about">
+                            О нас
+                        </a>
+                        <a className={styles.Link} href="/SneakersShop/#select">
+                            Подбор Товара
+                        </a>
+                        <a className={styles.Link} href="/SneakersShop/#crew">
+                            Наша Комада
+                        </a>
+                        <a className={styles.Link} href="/SneakersShop/#main">
+                            Доставка товара
+                        </a>
+                        <a
+                            className={styles.Link}
+                            href="/SneakersShop/#contacts"
+                        >
+                            Контакты
+                        </a>
+                        <a className={styles.Link} href="/SneakersShop/#faq">
+                            FAQ
+                        </a>
+                    </div>
+                )}
+            </div>
+        </header>
+    );
 }

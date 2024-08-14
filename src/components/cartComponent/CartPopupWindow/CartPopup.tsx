@@ -102,14 +102,19 @@ const CartListItem = ({item, handleDelete}: ICartListItem) => {
 
     return (
         <li className={styles.buysListItem}>
-            <img className={styles.listItemImg} src={item.imgUrl} alt="item"/>
+            <img className={styles.listItemImg} src={item.imgUrl} alt="item" />
             <div className={styles.listItemInfo}>
                 <h3 className={styles.listItemTitle}>{item.title}</h3>
                 <p className={styles.listItemPrice}>{item.price}₽</p>
             </div>
             <button className={styles.listItemDeleteBTN}>
-                <img className={styles.deleteIcon} src="../src/assets/trashCanIcon.svg" alt="del" onClick={handleDelete}/>
-            </button>   
+                <img
+                    className={styles.deleteIcon}
+                    src="../../assets/trashCanIcon.svg"
+                    alt="del"
+                    onClick={handleDelete}
+                />
+            </button>
         </li>
-    )
+    );
 }
