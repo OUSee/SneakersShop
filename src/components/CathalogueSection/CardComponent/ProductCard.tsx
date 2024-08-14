@@ -3,6 +3,8 @@ import { Sneaker } from '../../../types'
 import styles from './styles.module.css'
 import { AppDispatch, RootState } from '../../../redux/store';
 import { updateCart } from '../../../redux/slices/cartsSlice';
+import viewIcon from '../../../assets/wiewIcon.svg'
+import cartIcon from '../../../assets/cartIcon.svg'
 
 interface IProductCard {
     openPopup: () => void,
@@ -46,7 +48,7 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
                 <div className={styles.hoverOptions}>
                     <button className={styles.hoverButton} onClick={openPopup}>
                         <img
-                            src="../../assets/wiewIcon.svg"
+                            src={viewIcon}
                             alt="W"
                             width="20em"
                             height="20em"
@@ -57,7 +59,7 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
                         onClick={handleAddToCart}
                     >
                         <img
-                            src="../../assets/cartIcon.svg"
+                            src={cartIcon}
                             alt="C"
                             width="20em"
                             height="20em"

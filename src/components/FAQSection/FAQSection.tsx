@@ -1,5 +1,12 @@
 import { FAQAccordion } from './faqAccordion'
 import styles from './styles.module.css'
+import instaLogo from "../../assets/instaLogo.png";
+import galaryItem1 from '../../assets/instaGroup/1.png'
+import galaryItem2 from "../../assets/instaGroup/2.png";
+import galaryItem3 from "../../assets/instaGroup/3.png";
+import galaryItem4 from "../../assets/instaGroup/4.png";
+import galaryItem5 from "../../assets/instaGroup/5.png";
+
 
     
 export const FAQSection = () => {
@@ -40,20 +47,20 @@ export const FAQSection = () => {
                     <div className={styles.instaGroup}>
                         <img
                             className={styles.instaGrouplogo}
-                            src="../../assets/instaLogo.png"
+                            src={instaLogo}
                             alt="instagram"
                         />
                         <ul className={styles.instaGalary}>
                             <li className={styles.instaGalaryItem}>
                                 <img
                                     className={styles.instaGalaryItemImg}
-                                    src="../../assets/instaGroup/1.png"
+                                    src={galaryItem1}
                                     alt="pic"
                                     width="110px"
                                 />
                                 <img
                                     className={styles.instaGalaryItemImg}
-                                    src="../../assets/instaGroup/2.png"
+                                    src={galaryItem2}
                                     alt="pic"
                                     width="110px"
                                 />
@@ -61,7 +68,7 @@ export const FAQSection = () => {
                             <li className={styles.instaGalaryItem}>
                                 <img
                                     className={styles.instaGalaryItemImg}
-                                    src="../../assets/instaGroup/5.png"
+                                    src={galaryItem5}
                                     alt="pic"
                                     width="231px"
                                 />
@@ -69,13 +76,13 @@ export const FAQSection = () => {
                             <li className={styles.instaGalaryItem}>
                                 <img
                                     className={styles.instaGalaryItemImg}
-                                    src="../../assets/instaGroup/3.png"
+                                    src={galaryItem3}
                                     alt="pic"
                                     width="110px"
                                 />
                                 <img
                                     className={styles.instaGalaryItemImg}
-                                    src="../../assets/instaGroup/4.png"
+                                    src={galaryItem4}
                                     alt="pic"
                                     width="110px"
                                 />

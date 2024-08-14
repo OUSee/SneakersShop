@@ -1,4 +1,5 @@
 import styles from './styles.module.css'
+import aboutPic from '../../assets/aboutPic.png'
     
 export const AboutSection = () => {
     return (
@@ -21,7 +22,7 @@ export const AboutSection = () => {
                     <div className={styles.picContainer}>
                         <img
                             className={styles.abotPic}
-                            src="src/assets/aboutPic.png"
+                            src={aboutPic}
                             alt="pic"
                         />
                     </div>

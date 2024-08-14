@@ -5,6 +5,7 @@ import { Cart, mapPrice, Sneaker } from '../../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../redux/store';
 import { updateCart } from '../../../redux/slices/cartsSlice';
+import tarshIcon from '../../../assets/trashCanIcon.svg'
 
 interface ICartPopup {
     onClose: () => void;
@@ -110,7 +111,7 @@ const CartListItem = ({item, handleDelete}: ICartListItem) => {
             <button className={styles.listItemDeleteBTN}>
                 <img
                     className={styles.deleteIcon}
-                    src="../../assets/trashCanIcon.svg"
+                    src={tarshIcon}
                     alt="del"
                     onClick={handleDelete}
                 />

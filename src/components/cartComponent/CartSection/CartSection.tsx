@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import { useEffect, useState } from 'react'
 import { AppDispatch, RootState } from '../../../redux/store';
 import { updateCart } from '../../../redux/slices/cartsSlice';
+import trashIcon from '../../../assets/trashCanIcon.svg'
 
 
 interface IListItem{
@@ -108,11 +109,7 @@ const ListItem = ({item, handleDelete}: IListItem) => {
                 <p className={styles.listItemPrice}>{item.price}₽</p>
             </div>
             <button onClick={handleDelete} className={styles.listItemDeleteBTN}>
-                <img
-                    className={styles.deleteIcon}
-                    src="../../assets/trashCanIcon.svg"
-                    alt="del"
-                />
+                <img className={styles.deleteIcon} src={trashIcon} alt="del" />
             </button>
         </li>
     );
