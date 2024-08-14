@@ -141,31 +141,60 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     },[])
 
     
-    return ( 
+    return (
         <div className={styles.container} onClick={handleClose}>
             <div className={styles.popupWindow}>
                 <div className={styles.topSection}>
-                    <img id='popupImg' className={styles.productImage} src={sneaker?.imgUrl} alt="image" />
+                    <img
+                        id="popupImg"
+                        className={styles.productImage}
+                        src={sneaker?.imgUrl}
+                        alt="image"
+                    />
                     <div className={styles.mainGroup}>
                         <div className={styles.topAnnotation}>
-                            <p className={styles.topAnnotationArticul}>Артикул: {sneaker?.vendorСode}</p>
-                            <p className={styles.topAnnotationAmmount}>В наличии: <span className={styles.ammount}>{sneaker?.inStock} шт</span></p>
+                            <p className={styles.topAnnotationArticul}>
+                                Артикул: {sneaker?.vendorСode}
+                            </p>
+                            <p className={styles.topAnnotationAmmount}>
+                                В наличии:{" "}
+                                <span className={styles.ammount}>
+                                    {sneaker?.inStock} шт
+                                </span>
+                            </p>
                         </div>
-                        <h1 className={styles.productTitle}>{sneaker?.title}</h1>
-                        <div id='rating' className={styles.rating}>
-                        
-                        </div>
+                        <h1 className={styles.productTitle}>
+                            {sneaker?.title}
+                        </h1>
+                        <div id="rating" className={styles.rating}></div>
                         <div className={styles.sizesGroup}>
-                            <h3 className={styles.sizesTitle}>Выберите размер</h3>
+                            <h3 className={styles.sizesTitle}>
+                                Выберите размер
+                            </h3>
                             <ul className={styles.sizesList}>
-                                {sneaker?.sizes.map((size) => <li key={size} className={styles.sizesListitem}>{size}</li>)}
+                                {sneaker?.sizes.map((size) => (
+                                    <li
+                                        key={size}
+                                        className={styles.sizesListitem}
+                                    >
+                                        {size}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className={styles.prices}>
-                            <h3 className={styles.mainPrice}>{sneaker?.price}&#8381;</h3>
-                            <h4 className={styles.oldPrice}>{ sneaker?.oldPrice}&#8381;</h4>
+                            <h3 className={styles.mainPrice}>
+                                {sneaker?.price}&#8381;
+                            </h3>
+                            <h4 className={styles.oldPrice}>
+                                {sneaker?.oldPrice}&#8381;
+                            </h4>
                         </div>
-                        <Link to='/cart' className={styles.addToCartButton} onClick={handleAddToCart}>
+                        <Link
+                            to="/SneakersShop/cart"
+                            className={styles.addToCartButton}
+                            onClick={handleAddToCart}
+                        >
                             Заказать
                         </Link>
                         <ul className={styles.adavantageslist}>
@@ -185,11 +214,13 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
                     <div className={styles.bottomSectionLeft}>
                         <h2 className={styles.descriptionTitle}>Описание</h2>
                         <p className={styles.descriptionParagraph}>
-                            { sneaker?.description}
+                            {sneaker?.description}
                         </p>
                     </div>
                     <div className={styles.bottomSectionRight}>
-                        <h2 className={styles.characteristicsTitle}>Характеристики</h2>
+                        <h2 className={styles.characteristicsTitle}>
+                            Характеристики
+                        </h2>
                         <ul className={styles.characteristicslist}>
                             <li className={styles.characteristicslistitem}>
                                 Пол: {sneaker?.gender}
@@ -208,5 +239,5 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
