@@ -108,7 +108,7 @@ const CartListItem = ({item, handleDelete}: ICartListItem) => {
                 <h3 className={styles.listItemTitle}>{item.title}</h3>
                 <p className={styles.listItemPrice}>{item.price}₽</p>
             </div>
-            <button className={styles.listItemDeleteBTN}>
+            <button className={styles.listItemDeleteBTN} onClick={handleDelete}>
                 <TrashIcon />
             </button>
         </li>
