@@ -91,7 +91,7 @@ export const CartPopup = ({ onClose, items = [] }: ICartPopup) => {
                         <h3 className={styles.cartFinal}>Итого:</h3>
                         <p className={styles.cartFinalPrice}>{mapPrice(finalPrice)}₽</p>
                     </div>
-                    <Link to='/cart' className={styles.cartBTN}>Перейти в корзину</Link>
+                    <Link to='/SneakersShop/cart' className={styles.cartBTN}>Перейти в корзину</Link>
                 </div>
             </div>
         </div>
