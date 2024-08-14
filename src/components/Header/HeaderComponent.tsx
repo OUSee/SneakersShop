@@ -36,13 +36,13 @@ export const HeaderComponent = () => {
             <h1 className={styles.headTitle}>Sneak Max</h1>
             <nav className={styles.headNav}>
                 {screen.width > 640 && <ul className={styles.headNavList}>
-                    <a className={styles.Link} href="/#cathalogue">Каталог</a>
-                    <a className={styles.Link} href="/#about">О нас</a>
-                    <a className={styles.Link} href="/#select">Подбор Товара</a>
-                    <a className={styles.Link} href="/#crew">Наша Комада</a>
-                    <a className={styles.Link} href="/#main">Доставка товара</a>
-                    <a className={styles.Link} href="/#contacts">Контакты</a>
-                    <a className={styles.Link} href="/#faq">FAQ</a>
+                    <a className={styles.Link} href="/SneakersShop/#cathalogue">Каталог</a>
+                    <a className={styles.Link} href="/SneakersShop/#about">О нас</a>
+                    <a className={styles.Link} href="/SneakersShop/#select">Подбор Товара</a>
+                    <a className={styles.Link} href="/SneakersShop/#crew">Наша Комада</a>
+                    <a className={styles.Link} href="/SneakersShop/#main">Доставка товара</a>
+                    <a className={styles.Link} href="/SneakersShop/#contacts">Контакты</a>
+                    <a className={styles.Link} href="/SneakersShop/#faq">FAQ</a>
                     <div className={styles.cartContainer}>
                         <button className={styles.Link} onClick={() => { handleCartPopupOpen() }} >
                         Корзина
@@ -82,13 +82,13 @@ export const HeaderComponent = () => {
             </nav>
                 </div>
                 {menuView && <div className={styles.headNavListhidden}>
-                            <a className={styles.Link} href="/#cathalogue">Каталог</a>
-                    <a className={styles.Link} href="/#about">О нас</a>
-                    <a className={styles.Link} href="/#select">Подбор Товара</a>
-                    <a className={styles.Link} href="/#crew">Наша Комада</a>
-                    <a className={styles.Link} href="/#main">Доставка товара</a>
-                    <a className={styles.Link} href="/#contacts">Контакты</a>
-                    <a className={styles.Link} href="/#faq">FAQ</a>
+                            <a className={styles.Link} href="/SneakersShop/#cathalogue">Каталог</a>
+                    <a className={styles.Link} href="/SneakersShop/#about">О нас</a>
+                    <a className={styles.Link} href="/SneakersShop/#select">Подбор Товара</a>
+                    <a className={styles.Link} href="/SneakersShop/#crew">Наша Комада</a>
+                    <a className={styles.Link} href="/SneakersShop/#main">Доставка товара</a>
+                    <a className={styles.Link} href="/SneakersShop/#contacts">Контакты</a>
+                    <a className={styles.Link} href="/SneakersShop/#faq">FAQ</a>
                         </div>}
     </div>
     </header>

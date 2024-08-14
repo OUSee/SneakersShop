@@ -50,9 +50,9 @@ function App() {
   return (
 
     <Routes>
-      <Route path='/' element={<LayoutComponent />}>
-        <Route path='/' element={<HomePage />}></Route>
-        <Route path='/cart' element={<CartPage />}></Route>
+      <Route path='/SneakersShop/' element={<LayoutComponent />}>
+        <Route path='/SneakersShop/' element={<HomePage />}></Route>
+        <Route path='/SneakersShop/cart' element={<CartPage />}></Route>
         <Route path='/*' element={<NotFoundPage />}></Route>
       </Route>
     </Routes>
