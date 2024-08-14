@@ -178,7 +178,7 @@
 /* uwide */
 @media only screen and (min-width: 1440px){
     .container{
-        padding: 230px 19%;
+        padding: 3vw 19%;
         font-size: larger;
         height: fit-content;
     }
