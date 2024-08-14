@@ -4,6 +4,7 @@ import { useState } from 'react'
 import {  useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { Burger } from './burger/burger'
+import { CartIcon } from '../icons/cartIcon'
 
     
 export const HeaderComponent = () => {
@@ -87,10 +88,7 @@ export const HeaderComponent = () => {
                                         }}
                                     >
                                         Корзина
-                                        <img
-                                            className={styles.cartIcon}
-                                            src="../../assets/cartIcon.svg"
-                                        />
+                                        <CartIcon />
                                     </button>
                                     <div className={styles.cartAmountIcon}>
                                         {cartState.items.length > 0
@@ -117,10 +115,7 @@ export const HeaderComponent = () => {
                                         }}
                                     >
                                         Корзина
-                                        <img
-                                            className={styles.cartIcon}
-                                            src="../../assets/cartIcon.svg"
-                                        />
+                                        <CartIcon />
                                     </button>
                                     <div className={styles.cartAmountIcon}>
                                         {cartState.items.length > 0

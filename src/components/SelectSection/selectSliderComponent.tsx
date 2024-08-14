@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { SliderCard } from './SliderCard'
 import styles from './styles.module.css'
+import sneakerImg from '../../assets/sneaker.png'
+import secSliderPic from '../../assets/secondSlidePic.png'
     
 export const SelectSlider = () => {
     const [currentSlide, setCurrentSlide] = useState<Element>();
@@ -41,32 +43,32 @@ export const SelectSlider = () => {
                     <h2 className={styles.sliderContentTitle}>Какой тип кроссовок рассматриваете?</h2>
                     <div className={styles.sliderContentOptionsTable}>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input  className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker1' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker1">Кроссовки</label>
                         </div>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker2' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker2">Кроссовки</label>
                         </div>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker3' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker3">Кроссовки</label>
                         </div>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker4' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker4">Кроссовки</label>
                         </div>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker5' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker5">Кроссовки</label>
                         </div>
                         <div className={styles.sliderContentOptionsTableItem}>
-                            <img className={styles.optionTableItemImg} src="../src/assets/sneaker.png" alt="sneaker" />
+                            <img className={styles.optionTableItemImg} src={sneakerImg} alt="sneaker" />
                             <input className='defaultCheckBox' type="checkbox" name="option" id='optionSneaker6' />
                             <label className={styles.sliderCardOption} htmlFor="optionSneaker6">Кроссовки</label>
                         </div>
@@ -102,7 +104,7 @@ export const SelectSlider = () => {
                             <label className={styles.sliderCardOption} htmlFor="optionSize5">45 и больше</label>
                         </li>
                     </ul>
-                    <img className={styles.secondSlidePic} src="../src/assets/secondSlidePic.png" alt="decPic" />
+                    <img className={styles.secondSlidePic} src={secSliderPic} alt="decPic" />
                 </SliderCard>
                 <SliderCard
                     id='sliderCard3'

@@ -5,6 +5,8 @@ import { AppDispatch, RootState } from '../../../redux/store';
 import { updateCart } from '../../../redux/slices/cartsSlice';
 import viewIcon from '../../../assets/wiewIcon.svg'
 import cartIcon from '../../../assets/cartIcon.svg'
+import { ViewIcon } from '../../icons/viewIcon';
+import { CartIcon } from '../../icons/cartIcon';
 
 interface IProductCard {
     openPopup: () => void,
@@ -47,23 +49,13 @@ export const ProductCard = ({ openPopup, sneaker }: IProductCard) => {
             {screen.width > 960 && (
                 <div className={styles.hoverOptions}>
                     <button className={styles.hoverButton} onClick={openPopup}>
-                        <img
-                            src={viewIcon}
-                            alt="W"
-                            width="20em"
-                            height="20em"
-                        />
+                        <ViewIcon/>
                     </button>
                     <button
                         className={styles.hoverButton}
                         onClick={handleAddToCart}
                     >
-                        <img
-                            src={cartIcon}
-                            alt="C"
-                            width="20em"
-                            height="20em"
-                        />
+                        <CartIcon />
                     </button>
                 </div>
             )}

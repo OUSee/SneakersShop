@@ -1,3 +1,5 @@
+import { InstaIcon } from '../icons/instaIcon';
+import { VkIcon } from '../icons/vkIcon';
 import styles from './styles.module.css'
 
     
@@ -32,19 +34,13 @@ export const ContactsSection = () => {
                                 className={styles.vkLink}
                                 href="https://vk.com/luckyoneboy"
                             >
-                                <img
-                                    className={styles.svg}
-                                    src="../../assets/vkIcon.svg"
-                                />
+                               <VkIcon/>
                             </a>
                             <a
                                 className={styles.instagramLink}
                                 href="https://www.instagram.com/dicedites_vir"
                             >
-                                <img
-                                    className={styles.svg}
-                                    src="../../assets/instagramIcon.svg"
-                                />
+                                <InstaIcon/>
                             </a>
                         </div>
                     </div>
