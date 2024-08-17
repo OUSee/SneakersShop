@@ -9,14 +9,20 @@ import galaryItem5 from "../../assets/instaGroup/5.png";
 
 
     
-export const FAQSection = () => {
+export const FAQSection = (event: MouseEvent) => {
+
+    const handleSubmit = () => {
+        event.preventDefault()
+        console.log('Form submitted')
+    };
+
     return (
         <div className={styles.container}>
             <div id="faq" className="content">
                 <h1 className={styles.faqTitle}>Часто задаваемые вопросы</h1>
                 <FAQAccordion />
                 <div className={styles.secondSection}>
-                    <form className={styles.askQuestionForm}>
+                    <form className={styles.askQuestionForm} onSubmit={()=>{handleSubmit}}>
                         <h2 className={styles.askFormTitle}>
                             Есть еще вопросы?
                         </h2>
@@ -41,6 +47,7 @@ export const FAQSection = () => {
                             type="submit"
                             className={styles.askFormSubmitBTN}
                         >
+                            
                             Отправить
                         </button>
                     </form>

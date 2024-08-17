@@ -20,8 +20,7 @@ export const FilterComponent = () => {
     const formFilter = (event: any) => {
 
         event.preventDefault();
-        appDispatch(getProducts());
-        
+       
         const form = new FormData(event.target);
         const data = Object.fromEntries(form);
         const newFilter: Filter = {

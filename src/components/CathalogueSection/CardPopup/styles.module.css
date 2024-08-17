@@ -101,6 +101,7 @@
 
 .sizesTitle {
     font-size: 11px;
+    margin-bottom: 5px;
 }
 
 .sizesList {
@@ -108,27 +109,6 @@
     flex-direction: row;
     gap: 16px;
     flex-wrap: wrap;
-}
-
-.sizesListitem {
-    font-size: 10px;
-    padding: 6px 19px;
-    border: 1px solid rgba(178, 181, 187, 1);
-    border-radius: 4px;
-}
-
-.sizesListitem:hover {
-    cursor: pointer;
-    border-color: #f14f4f;
-}
-
-.sizesListitemDisabled {
-    cursor: default;
-    font-size: 10px;
-    padding: 6px 19px;
-    border: 1px solid rgba(178, 181, 187, 1);
-    border-radius: 4px;
-    color: rgba(178, 181, 187, 1);
 }
 
 .prices {
@@ -194,6 +174,48 @@
     font-size: 14px;
 }
 
+
+/* checkBoxes */
+
+.checkBoxContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sizeCheckbox {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    margin: 0;
+}
+
+
+.sizeLabel {
+    width: 37px;
+    height: 23px;
+    outline: 1px solid rgb(158, 158, 158);
+    border-radius: 4px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.sizeLabel:hover{
+    outline: 1px solid rgb(254, 53, 53);
+}
+
+.sizeCheckbox:checked .sizeLabel{ 
+    outline: 1px solid rgb(254, 53, 53);
+}
+
+.sizesList input[type="checkbox"]:checked + label {
+        outline: 1px solid rgb(254, 53, 53);
+}
+
+
+/* adapttions */
+
 @media screen and (max-width: 960px) {
     .container{
         padding: 14px 5%;
@@ -244,3 +266,4 @@
     border-radius: 4px;
 }
 }
+

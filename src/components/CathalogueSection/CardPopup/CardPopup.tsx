@@ -1,29 +1,28 @@
-import { useEffect, useState } from 'react';
-import styles from './styles.module.css'
-import { Link } from 'react-router-dom';
-import { Sneaker } from '../../../types';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../redux/store';
-import { updateCart } from '../../../redux/slices/cartsSlice';
+import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
+import { Sneaker } from "../../../types";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { updateCart } from "../../../redux/slices/cartsSlice";
 
-interface ICardPopup{
-    onClose: () => void
-    sneaker: Sneaker 
+interface ICardPopup {
+    onClose: () => void;
+    sneaker: Sneaker;
 }
 
-
 export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
-    const cartState = useSelector((state: RootState) => state.cart.data)
-    const dispatch = useDispatch<AppDispatch>()
-    const [magnifier, setMagnifier] = useState(false)
+    const cartState = useSelector((state: RootState) => state.cart.data);
+    const dispatch = useDispatch<AppDispatch>();
+    const [magnifier, setMagnifier] = useState(false);
     let counter = 0;
 
     const handleClose = () => {
         onClose();
-    }   
+    };
 
     const handleAddToCart = () => {
-        let newItems = [...cartState.items as Sneaker[], sneaker]
+        let newItems = [...(cartState.items as Sneaker[]), sneaker];
         const newCartInstance = {
             uid: cartState.uid,
             items: newItems,
@@ -32,40 +31,40 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     };
 
     const rate = () => {
-        const rateContainer = document.querySelector('#rating');
+        const rateContainer = document.querySelector("#rating");
         while (counter < sneaker.stars) {
-            const star = document.createElement('span');
-            star.innerHTML = '&#9733;'
-            rateContainer?.appendChild(star)
+            const star = document.createElement("span");
+            star.innerHTML = "&#9733;";
+            rateContainer?.appendChild(star);
             counter++;
         }
-    }
+    };
 
     function magnify(imgID: string, zoom: number) {
-
-        setMagnifier(true)
+        setMagnifier(true);
 
         const img = document.getElementById(imgID) as HTMLImageElement;
 
         /* Create magnifier glass: */
 
-        const glassInstance = document.querySelector('#magnifier')
+        const glassInstance = document.querySelector("#magnifier");
         if (glassInstance != null) {
-            glassInstance.remove()
+            glassInstance.remove();
         }
         const glass = document.createElement("div");
-        glass.setAttribute('id', 'magnifier');
+        glass.setAttribute("id", "magnifier");
         glass.className = styles.magnifierGlass;
 
         /* Insert magnifier glass: */
-        
+
         img?.parentElement?.insertBefore(glass, img);
 
         /* Set background properties for the magnifier glass: */
 
         glass.style.backgroundImage = "url('" + img?.src + "')";
         glass.style.backgroundRepeat = "no-repeat";
-        glass.style.backgroundSize = (img?.width * zoom) + "px " + (img?.height * zoom) + "px";
+        glass.style.backgroundSize =
+            img?.width * zoom + "px " + img?.height * zoom + "px";
         const bw = 3;
         const w = glass.offsetWidth / 2;
         const h = glass.offsetHeight / 2;
@@ -75,9 +74,9 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
         glass.addEventListener("mousemove", moveMagnifier);
         img?.addEventListener("mousemove", moveMagnifier);
 
-        function moveMagnifier(e : MouseEvent) {
+        function moveMagnifier(e: MouseEvent) {
             var x, y;
-            
+
             /* Prevent any other actions that may occur when moving over the image */
 
             e.preventDefault();
@@ -90,23 +89,32 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
 
             /* Prevent the magnifier glass from being positioned outside the image: */
 
-            if (x > img?.width - (w / zoom)) { x = img?.width - (w / zoom); }
-            if (x < w / zoom) { x = w / zoom; }
-            if (y > img?.height - (h / zoom)) { y = img?.height - (h / zoom); }
-            if (y < h / zoom) { y = h / zoom; }
+            if (x > img?.width - w / zoom) {
+                x = img?.width - w / zoom;
+            }
+            if (x < w / zoom) {
+                x = w / zoom;
+            }
+            if (y > img?.height - h / zoom) {
+                y = img?.height - h / zoom;
+            }
+            if (y < h / zoom) {
+                y = h / zoom;
+            }
 
             /* Set the position of the magnifier glass: */
 
-            glass.style.left = (x) + 225 + "px";
-            glass.style.top = (y) + 30 + "px";
+            glass.style.left = x + 225 + "px";
+            glass.style.top = y + 30 + "px";
 
             /* Display what the magnifier glass "sees": */
 
-            glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+            glass.style.backgroundPosition =
+                "-" + (x * zoom - w + bw) + "px -" + (y * zoom - h + bw) + "px";
         }
         function getCursorPos(e: MouseEvent) {
-
-            var x = 0, y = 0;
+            var x = 0,
+                y = 0;
 
             /* Get the x and y positions of the image: */
 
@@ -126,23 +134,43 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
         }
     }
 
+    const handleSizeChoose = (e: MouseEvent) => {
+        e.preventDefault();
+        if (e.target == document.querySelector(".sizesListitem")) {
+            const size = e.target as HTMLElement;
+            size.className = styles.toggledSizesListitem;
+        }
+    };
+
     useEffect(() => {
         rate();
 
         if (magnifier == false && screen.width > 960) {
-            magnify('popupImg', 2)
+            magnify("popupImg", 2);
         }
 
-        document.addEventListener('keydown', (e) => { 
-            if (e.key === 'Escape') { 
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
                 onClose();
             }
-        })
-    },[])
+        });
+    }, []);
 
-    
     return (
-        <div className={styles.container} onClick={handleClose}>
+        <div
+            className={styles.container}
+            id="popupContainerOutsides"
+            onClick={() => {
+                if (
+                    event?.target !=
+                    document.querySelector("#popupContainerOutsides")
+                )
+                    return;
+                else {
+                    onClose();
+                }
+            }}
+        >
             <div className={styles.popupWindow}>
                 <div className={styles.topSection}>
                     <img
@@ -173,12 +201,23 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
                             </h3>
                             <ul className={styles.sizesList}>
                                 {sneaker?.sizes.map((size) => (
-                                    <li
-                                        key={size}
-                                        className={styles.sizesListitem}
+                                    <div
+                                        key={`key_popup${size}`}
+                                        className={styles.checkBoxContainer}
                                     >
-                                        {size}
-                                    </li>
+                                        <input
+                                            name={`size_popup${size}`}
+                                            type="checkbox"
+                                            className={styles.sizeCheckbox}
+                                            id={`size_popup` + size}
+                                        />
+                                        <label
+                                            htmlFor={`size_popup` + size}
+                                            className={styles.sizeLabel}
+                                        >
+                                            {size}
+                                        </label>
+                                    </div>
                                 ))}
                             </ul>
                         </div>
@@ -240,4 +279,4 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
             </div>
         </div>
     );
-}
+};
