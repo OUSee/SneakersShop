@@ -6,14 +6,15 @@ import galaryItem2 from "../../assets/instaGroup/2.png";
 import galaryItem3 from "../../assets/instaGroup/3.png";
 import galaryItem4 from "../../assets/instaGroup/4.png";
 import galaryItem5 from "../../assets/instaGroup/5.png";
+import { FormEvent } from 'react';
 
 
     
-export const FAQSection = (event: MouseEvent) => {
+export const FAQSection = () => {
 
-    const handleSubmit = () => {
-        event.preventDefault()
-        console.log('Form submitted')
+    const handleSubmit = (event: FormEvent) => {
+        event.preventDefault();
+        console.log("Form submitted");
     };
 
     return (
