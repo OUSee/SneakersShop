@@ -17,10 +17,6 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
     const [magnifier, setMagnifier] = useState(false);
     let counter = 0;
 
-    const handleClose = () => {
-        onClose();
-    };
-
     const handleAddToCart = () => {
         let newItems = [...(cartState.items as Sneaker[]), sneaker];
         const newCartInstance = {
@@ -133,14 +129,6 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
             return { x: x, y: y };
         }
     }
-
-    const handleSizeChoose = (e: MouseEvent) => {
-        e.preventDefault();
-        if (e.target == document.querySelector(".sizesListitem")) {
-            const size = e.target as HTMLElement;
-            size.className = styles.toggledSizesListitem;
-        }
-    };
 
     useEffect(() => {
         rate();
