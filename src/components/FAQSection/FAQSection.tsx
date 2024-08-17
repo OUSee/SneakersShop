@@ -12,9 +12,11 @@ import { FormEvent } from 'react';
     
 export const FAQSection = () => {
 
-    const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
-        console.log("Form submitted");
+        const form = new FormData(event.target);
+        const data = Object.fromEntries(form);
+        console.log("Form submitted: ", data);
     };
 
     return (
