@@ -18,7 +18,10 @@ export const FilterComponent = () => {
     const productsState = useSelector((state: RootState) => state.products.data)
 
     const formFilter = (event: any) => {
-         event.preventDefault();
+
+        event.preventDefault();
+        appDispatch(getProducts());
+        
         const form = new FormData(event.target);
         const data = Object.fromEntries(form);
         const newFilter: Filter = {
@@ -52,6 +55,7 @@ export const FilterComponent = () => {
                 if (filter.sizes.size43) sizes.push(43);
                 return sizes;
         };
+
         const priceFilteredProducts = productsState.filter((item: Sneaker) => {
             if (
                 (newFilter.start_price < Number(item.price.replace(' ', ''))) && (newFilter.end_price > Number(item.price.replace(' ', '')))
@@ -60,12 +64,14 @@ export const FilterComponent = () => {
             }
             else return false
         })
+
         const genderFilteredProducts = priceFilteredProducts.filter((item: Sneaker) => {
             if ((newFilter.men && item.gender == "Мужской") || (newFilter.women && item.gender == 'Женский')) { 
                 return true
             }
             else return false
         })
+
         const sizeFilteredProducts = genderFilteredProducts.filter((item: Sneaker) => {
             if (getSizes(newFilter).some(size => item.sizes.includes(size))) { return true }
             else return false
