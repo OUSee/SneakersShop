@@ -234,6 +234,11 @@
     margin-bottom: 17px;
 }
 
+.personalOfferSent{
+    font-size: 24px;
+    color: black;
+}
+
 @media screen and (max-width: 960px) {
     .sliderContainer{
         padding: 28px 5%;

@@ -27,6 +27,54 @@ export const SelectSlider = () => {
         setPersonalOffer(true);
     };
 
+    const tryPersonalOffer = () => {
+        if (!personalOffer)
+            return (
+                <>
+                    <form
+                        onSubmit={handleSubmit}
+                        className={styles.userInfoCard}
+                    >
+                        <h2 className={styles.userInfoTitle}>
+                            Получить предложение
+                        </h2>
+                        <p className={styles.userInfoDescription}>
+                            Получите подборку подходящих для вас моделей на
+                            почту
+                        </p>
+                        <input
+                            className={styles.userInfoInput}
+                            type="text"
+                            name="name"
+                            id="inputUserName"
+                            placeholder="Ваше имя"
+                        />
+                        <input
+                            className={styles.userInfoInput}
+                            type="email"
+                            name="email"
+                            id="inputUserEmail"
+                            placeholder="E-mail"
+                        />
+                        <button
+                            type="submit"
+                            className={styles.submitUserInfoButton}
+                        >
+                            Получить
+                        </button>
+                    </form>
+                </>
+            );
+        else
+            return (
+                <>
+                    <h3>
+                        Уже отправили вам ваше предложение, проверьте почту!
+                    </h3>
+                </>
+            );
+    };
+
     useEffect(() => {
         if (currentSlide != undefined) {
             currentSlide.className = styles.sliderCard;
@@ -274,63 +322,16 @@ export const SelectSlider = () => {
                         className={styles.sliderCardTextArea}
                     ></textarea>
                 </SliderCard>
-                {!personalOffer && (
-                    <SliderCard
-                        id="sliderCard4"
-                        title="Ваша подборка готова"
-                        description="Оставьте свои контактные данные, чтобы бы мы могли отправить  подготовленный для вас каталог"
-                        number="4"
-                        switchSlide={switchSlide}
-                    >
-                        {
-                            <form
-                                onSubmit={handleSubmit}
-                                className={styles.userInfoCard}
-                            >
-                                <h2 className={styles.userInfoTitle}>
-                                    Получить предложение
-                                </h2>
-                                <p className={styles.userInfoDescription}>
-                                    Получите подборку подходящих для вас моделей
-                                    на почту
-                                </p>
-                                <input
-                                    className={styles.userInfoInput}
-                                    type="text"
-                                    name="name"
-                                    id="inputUserName"
-                                    placeholder="Ваше имя"
-                                />
-                                <input
-                                    className={styles.userInfoInput}
-                                    type="email"
-                                    name="email"
-                                    id="inputUserEmail"
-                                    placeholder="E-mail"
-                                />
-                                <button
-                                    type="submit"
-                                    className={styles.submitUserInfoButton}
-                                >
-                                    Получить
-                                </button>
-                            </form>
-                        }
-                    </SliderCard>
-                )}
-                {personalOffer && (
-                    <SliderCard
-                        id="sliderCard5"
-                        title="Ваша подборка готова"
-                        description="Оставьте свои контактные данные, чтобы мы могли отправить  подготовленный"
-                        number="4"
-                        switchSlide={switchSlide}
-                    >
-                        <h3 className={styles.personalOfferSent}>
-                            Прекрасно мы уже отправляем вам подборку!
-                        </h3>
-                    </SliderCard>
-                )}
+                <SliderCard
+                    id="sliderCard4"
+                    title="Ваша подборка готова"
+                    description="Оставьте свои контактные данные, чтобы бы мы могли отправить  подготовленный для вас каталог"
+                    number="4"
+                    switchSlide={switchSlide}
+                    
+                >
+                    {tryPersonalOffer()}
+                </SliderCard>
             </div>
         </div>
     );
