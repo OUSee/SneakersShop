@@ -137,7 +137,7 @@
     height: 100%;
 }
 
-.instaGalaryItem{
+.instaGalaryItem {
     height: auto;
     margin-right: 11px;
     display: flex;
@@ -146,20 +146,33 @@
     gap: 11px;
 }
 
+.gifContainer {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.iFrame{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
 @media screen and (max-width: 960px) {
-    .accordionContainer{
+    .accordionContainer {
         width: 100%;
         padding: 0;
     }
-    .secondSection{
+    .secondSection {
         display: flex;
         flex-direction: column;
     }
-    .askQuestionForm{
+    .askQuestionForm {
         width: 100%;
         margin-bottom: 25px;
     }
-    .instaGroup{
+    .instaGroup {
         width: 100%;
     }
 }

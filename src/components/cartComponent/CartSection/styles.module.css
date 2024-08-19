@@ -165,13 +165,12 @@
 }
 
 .emptyCart{
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     border-radius: 0px 0px 5px 5px;
-    padding: 183px;
+    padding: 20%;
 }
 
 /* adaptations */
