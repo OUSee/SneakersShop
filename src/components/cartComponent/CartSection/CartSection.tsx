@@ -39,64 +39,100 @@ export const CartSection = () => {
         dispatch(updateCart({uid: cartState.uid, items: final} as Cart))
     }
 
+     const handleSubmit = (e: any) => {
+         e.preventDefault();
+
+         const form = new FormData(e.target);
+         const data = Object.fromEntries(form);
+         console.log("Form submitted:", data);
+     };
+
     useEffect(() => {
         getPrice();
     }, [cartState])
-    return ( 
+    return (
         <div className={styles.container}>
             <div className={styles.cartHeader}>
                 <h2 className={styles.cartTitle}>Оформление заказа</h2>
-                <p className={styles.orderNumber}>Заказ {cartState.uid.toUpperCase()}</p>
+                <p className={styles.orderNumber}>
+                    Заказ {cartState.uid.toUpperCase()}
+                </p>
             </div>
-            {cartTotalPrice == 0 && <h3 className={styles.emptyCart}>Корзина пуста</h3>}
-            {cartTotalPrice != 0 && 
+            {cartTotalPrice == 0 && (
+                <h3 className={styles.emptyCart}>Корзина пуста</h3>
+            )}
+            {cartTotalPrice != 0 && (
                 <div className={styles.orderInfoContainer}>
-                    <h3 className={styles.itemsAmmount}>Товаров в заказе: <span className={styles.boldtxt}>{cartState.items.length} шт</span></h3>
-                    <h3 className={styles.itemsAmmount}>Общая сумма заказа: <span className={styles.boldtxt}>{mapPrice(cartTotalPrice)} ₽</span></h3>
+                    <h3 className={styles.itemsAmmount}>
+                        Товаров в заказе:{" "}
+                        <span className={styles.boldtxt}>
+                            {cartState.items.length} шт
+                        </span>
+                    </h3>
+                    <h3 className={styles.itemsAmmount}>
+                        Общая сумма заказа:{" "}
+                        <span className={styles.boldtxt}>
+                            {mapPrice(cartTotalPrice)} ₽
+                        </span>
+                    </h3>
                     <input
-                        type='checkbox'
-                        id='orderListToggle'
+                        type="checkbox"
+                        id="orderListToggle"
                         className={styles.orderAccordionToggle}
                     ></input>
                     <label
                         className={styles.orderAccordionLable}
-                        htmlFor="orderListToggle">
+                        htmlFor="orderListToggle"
+                    >
                         Состав заказа
                     </label>
                     <ul className={styles.accordionBody}>
                         {cartState.items.map((item, i) => {
-                            return (<ListItem key={item.id + i} item={item} handleDelete={()=>{handleDelete(item)}}/>)
+                            return (
+                                <ListItem
+                                    key={item.id + i}
+                                    item={item}
+                                    handleDelete={() => {
+                                        handleDelete(item);
+                                    }}
+                                />
+                            );
                         })}
                     </ul>
-                    <form className={styles.cartInputForm} action="" id='cartUserInfoForm'>
+                    <form
+                        className={styles.cartInputForm}
+                        onSubmit={handleSubmit}
+                        id="cartUserInfoForm"
+                    >
                         <input
                             type="text"
-                            name='username'
-                            id='CartUserName'
-                            placeholder='Ваше имя'
+                            name="username"
+                            id="CartUserName"
+                            placeholder="Ваше имя"
                             className={styles.inputField}
                         />
                         <input
                             type="phone"
-                            name='userphone'
-                            id='CartUserPhone'
-                            placeholder='Номер телефона'
+                            name="userphone"
+                            id="CartUserPhone"
+                            placeholder="Номер телефона"
                             className={styles.inputField}
                         />
                         <input
                             type="email"
-                            name='usermail'
-                            id='CartUserMail'
-                            placeholder='E-mail'
+                            name="usermail"
+                            id="CartUserMail"
+                            placeholder="E-mail"
                             className={styles.inputField}
                         />
-                        <button type='submit' className={styles.sendInfoBTN}>
+                        <button type="submit" className={styles.sendInfoBTN}>
                             Оформить заказ
                         </button>
                     </form>
-                </div>}
+                </div>
+            )}
         </div>
-        )
+    );
 }
 
 
