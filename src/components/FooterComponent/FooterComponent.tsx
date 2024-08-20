@@ -1,5 +1,5 @@
-import styles from './styles.module.css'
-    
+import styles from "./styles.module.css";
+
 export const FooterComponent = () => {
     return (
         <footer className={styles.container}>
@@ -15,22 +15,40 @@ export const FooterComponent = () => {
                                 >
                                     Каталог
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#about">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#about"
+                                >
                                     О нас
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#select">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#select"
+                                >
                                     Подбор Товара
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#crew">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#crew"
+                                >
                                     Наша Комада
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#main">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#main"
+                                >
                                     Доставка товара
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#contacts">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#contacts"
+                                >
                                     Контакты
                                 </a>
-                                <a className={styles.Link} href="/SneakersShop/#faq">
+                                <a
+                                    className={styles.Link}
+                                    href="/SneakersShop/#faq"
+                                >
                                     FAQ
                                 </a>
                             </ul>
@@ -40,4 +58,4 @@ export const FooterComponent = () => {
             </div>
         </footer>
     );
-}
+};

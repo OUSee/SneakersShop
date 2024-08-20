@@ -1,5 +1,5 @@
-import styles from './styles.module.css'
-    
+import styles from "./styles.module.css";
+
 export const HeroSection = () => {
     return (
         <div id="main" className={styles.container}>
@@ -24,4 +24,4 @@ export const HeroSection = () => {
             </div>
         </div>
     );
-}
+};

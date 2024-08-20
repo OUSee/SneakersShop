@@ -53,14 +53,14 @@
 }
 
 @media screen and (max-width: 960px) {
-    .contentContainer{
+    .contentContainer {
         width: 100%;
     }
-    .gotoCathalogueBTN{
+    .gotoCathalogueBTN {
         width: 100%;
         text-align: center;
     }
-    .backgroundText{
+    .backgroundText {
         font-size: 40px;
         transform: translateY(250%);
     }

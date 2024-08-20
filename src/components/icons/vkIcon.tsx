@@ -1,4 +1,3 @@
-    
 export const VkIcon = () => {
     return (
         <svg
@@ -16,4 +15,4 @@ export const VkIcon = () => {
             />
         </svg>
     );
-}
+};

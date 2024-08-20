@@ -42,7 +42,7 @@ export const SliderCard = ({
                     </div>
                 </div>
             );
-        } else{
+        } else {
             return (
                 <div className={styles.sliderCardInsides}>
                     <h2 className={styles.cardTitleV}>{title}</h2>
@@ -51,7 +51,7 @@ export const SliderCard = ({
                     <div className={styles.cardContent}>{children}</div>
                 </div>
             );
-        } 
+        }
     };
 
     return (

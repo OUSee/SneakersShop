@@ -1,6 +1,6 @@
-import styles from './styles.module.css'
-import aboutPic from '../../assets/aboutPic.png'
-    
+import styles from "./styles.module.css";
+import aboutPic from "../../assets/aboutPic.png";
+
 export const AboutSection = () => {
     return (
         <div className={styles.aboutContainer}>
@@ -31,4 +31,4 @@ export const AboutSection = () => {
             </div>
         </div>
     );
-}
+};

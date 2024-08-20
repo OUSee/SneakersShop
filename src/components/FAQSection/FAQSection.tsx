@@ -95,13 +95,11 @@ export const FAQSection = () => {
                         <ul className={styles.instaGalary}>
                             <li className={styles.instaGalaryItem}>
                                 <img
-                                    className={styles.instaGalaryItemImg}
                                     src={galaryItem1}
                                     alt="pic"
                                     width="110px"
                                 />
                                 <img
-                                    className={styles.instaGalaryItemImg}
                                     src={galaryItem2}
                                     alt="pic"
                                     width="110px"
@@ -109,7 +107,6 @@ export const FAQSection = () => {
                             </li>
                             <li className={styles.instaGalaryItem}>
                                 <img
-                                    className={styles.instaGalaryItemImg}
                                     src={galaryItem5}
                                     alt="pic"
                                     width="231px"
@@ -117,13 +114,11 @@ export const FAQSection = () => {
                             </li>
                             <li className={styles.instaGalaryItem}>
                                 <img
-                                    className={styles.instaGalaryItemImg}
                                     src={galaryItem3}
                                     alt="pic"
                                     width="110px"
                                 />
                                 <img
-                                    className={styles.instaGalaryItemImg}
                                     src={galaryItem4}
                                     alt="pic"
                                     width="110px"

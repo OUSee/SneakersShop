@@ -1,4 +1,3 @@
-    
 export const CartIcon = () => {
     return (
         <svg
@@ -14,4 +13,4 @@ export const CartIcon = () => {
             />
         </svg>
     );
-}
+};

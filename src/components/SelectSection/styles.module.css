@@ -6,7 +6,7 @@
     overflow-x: hidden;
 }
 
-.sliderContainer{
+.sliderContainer {
     overflow-x: hidden;
     padding: 28px 19%;
 }
@@ -17,7 +17,6 @@
     flex-direction: row;
     overflow: hidden;
 }
-
 
 .sliderCard {
     color: black;
@@ -66,14 +65,14 @@
     align-items: center;
 }
 
-.inactiveSlide{
+.inactiveSlide {
     max-width: 0;
     max-height: 0;
     opacity: 0;
     transition: all 0.3 ease-in-out;
 }
 
-.activeSlide{
+.activeSlide {
     width: 100%;
 }
 
@@ -99,8 +98,6 @@
     background-color: #444b58;
     color: white;
 }
-
-
 
 .sliderContentTitle {
     font-size: 17px;
@@ -132,7 +129,6 @@
     position: relative;
 }
 
-
 .sizesOptions {
     width: 100%;
     display: flex;
@@ -160,7 +156,7 @@
     border-radius: 10px;
 }
 
-.sliderCardTextArea:focus{
+.sliderCardTextArea:focus {
     outline: white;
 }
 
@@ -170,7 +166,7 @@
     font-weight: 400;
 }
 
-.userInfoCard{
+.userInfoCard {
     background-color: #dbbba9;
     color: white;
     border-radius: 4px;
@@ -181,18 +177,18 @@
     width: 60%;
 }
 
-.userInfoTitle{
+.userInfoTitle {
     font-size: 25px;
     font-weight: 700;
 }
 
-.userInfoDescription{
+.userInfoDescription {
     font-size: 13px;
     font-weight: 400;
     margin-bottom: 7px;
 }
 
-.userInfoInput{
+.userInfoInput {
     padding: 14px;
     background-color: white;
     border: 0;
@@ -202,12 +198,12 @@
     color: black;
 }
 
-.userInfoInput::placeholder{
+.userInfoInput::placeholder {
     font-size: 11px;
     color: rgba(178, 181, 187, 1);
 }
 
-.submitUserInfoButton{
+.submitUserInfoButton {
     margin-top: 7px;
     background-color: #f14f4f;
     border-radius: 4px;
@@ -216,47 +212,47 @@
     padding: 7px 14px;
 }
 
-.submitUserInfoButton:hover{
+.submitUserInfoButton:hover {
     background-color: #cc4949;
     border: none;
 }
 
-.cardTitleV{
+.cardTitleV {
     margin-top: 28px;
     font-size: 21px;
     font-weight: 700;
     margin-bottom: 14px;
 }
 
-.userInfoDescriptionV{
+.userInfoDescriptionV {
     font-size: 13px;
     font-weight: 400;
     margin-bottom: 17px;
 }
 
-.personalOfferSent{
+.personalOfferSent {
     font-size: 24px;
     color: black;
 }
 
 @media screen and (max-width: 960px) {
-    .sliderContainer{
+    .sliderContainer {
         padding: 28px 5%;
     }
-    .sliderCard{
+    .sliderCard {
         padding: 14px;
         height: fit-content;
     }
-    .sizesOptions{
+    .sizesOptions {
         flex-wrap: wrap;
     }
-    .userInfoCard{
+    .userInfoCard {
         width: 100%;
     }
-    .userInfoInput{
+    .userInfoInput {
         width: 100%;
     }
-    .submitUserInfoButton{
+    .submitUserInfoButton {
         width: 100%;
     }
 }

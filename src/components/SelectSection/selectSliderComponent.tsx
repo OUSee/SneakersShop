@@ -228,7 +228,7 @@ export const SelectSlider = () => {
                         Какой тип кроссовок рассматриваете?
                     </h2>
                     <ul className={styles.sizesOptions}>
-                        <li className={styles.sizesOptionContainer}>
+                        <li>
                             <input
                                 className="defaultCheckBox"
                                 type="checkbox"
@@ -242,7 +242,7 @@ export const SelectSlider = () => {
                                 менее 36
                             </label>
                         </li>
-                        <li className={styles.sizesOptionContainer}>
+                        <li>
                             <input
                                 className="defaultCheckBox"
                                 type="checkbox"
@@ -256,7 +256,7 @@ export const SelectSlider = () => {
                                 36-38
                             </label>
                         </li>
-                        <li className={styles.sizesOptionContainer}>
+                        <li>
                             <input
                                 className="defaultCheckBox"
                                 type="checkbox"
@@ -270,7 +270,7 @@ export const SelectSlider = () => {
                                 39-41
                             </label>
                         </li>
-                        <li className={styles.sizesOptionContainer}>
+                        <li>
                             <input
                                 className="defaultCheckBox"
                                 type="checkbox"
@@ -284,7 +284,7 @@ export const SelectSlider = () => {
                                 42-44
                             </label>
                         </li>
-                        <li className={styles.sizesOptionContainer}>
+                        <li>
                             <input
                                 className="defaultCheckBox"
                                 type="checkbox"
@@ -328,7 +328,6 @@ export const SelectSlider = () => {
                     description="Оставьте свои контактные данные, чтобы бы мы могли отправить  подготовленный для вас каталог"
                     number="4"
                     switchSlide={switchSlide}
-                    
                 >
                     {tryPersonalOffer()}
                 </SliderCard>

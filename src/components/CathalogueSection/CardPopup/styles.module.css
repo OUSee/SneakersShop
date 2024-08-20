@@ -170,14 +170,13 @@
     overflow-y: hidden;
 }
 
-.characteristicslist{
+.characteristicslist {
     font-size: 14px;
 }
 
-
 /* checkBoxes */
 
-.checkBoxContainer{
+.checkBoxContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,7 +189,6 @@
     margin: 0;
 }
 
-
 .sizeLabel {
     width: 37px;
     height: 23px;
@@ -201,39 +199,38 @@
     line-height: 24px;
 }
 
-.sizeLabel:hover{
+.sizeLabel:hover {
     outline: 1px solid rgb(254, 53, 53);
 }
 
-.sizeCheckbox:checked .sizeLabel{ 
+.sizeCheckbox:checked .sizeLabel {
     outline: 1px solid rgb(254, 53, 53);
 }
 
 .sizesList input[type="checkbox"]:checked + label {
-        outline: 1px solid rgb(254, 53, 53);
+    outline: 1px solid rgb(254, 53, 53);
 }
-
 
 /* adapttions */
 
 @media screen and (max-width: 960px) {
-    .container{
+    .container {
         padding: 14px 5%;
         overflow-y: scroll;
     }
 
-    .popupWindow{
+    .popupWindow {
         height: fit-content;
         overflow-y: scroll;
     }
-    
+
     .topSection,
-    .bottomSection{
+    .bottomSection {
         flex-direction: column;
         height: auto;
     }
 
-    .descriptionParagraph{
+    .descriptionParagraph {
         width: 100%;
         text-overflow: clip;
     }
@@ -241,29 +238,22 @@
     .bottomSectionRight {
         width: 100%;
     }
-    .characteristicslist{
+    .characteristicslist {
         width: 100%;
     }
-    .productImage{
+    .productImage {
         width: 100%;
         margin-bottom: 8px;
     }
-    .topAnnotationArticul, .topAnnotationAmmount{
+    .topAnnotationArticul,
+    .topAnnotationAmmount {
         font-size: 8px;
     }
-    .rating{
+    .rating {
         margin-bottom: 11px;
     }
-    
-.sizesList {
-    gap: 8px;
-}
 
-.sizesListitem {
-    font-size: 7px;
-    padding: 3px 14px;
-    border: 1px solid rgba(178, 181, 187, 1);
-    border-radius: 4px;
+    .sizesList {
+        gap: 8px;
+    }
 }
-}
-

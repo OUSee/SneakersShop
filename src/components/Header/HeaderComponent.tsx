@@ -1,41 +1,40 @@
-import styles from './styles.module.css'
-import { CartPopup } from '../cartComponent/CartPopupWindow/CartPopup'
-import { useState } from 'react'
-import {  useSelector } from 'react-redux'
-import { RootState } from '../../redux/store'
-import { Burger } from './burger/burger'
-import { CartIcon } from '../icons/cartIcon'
+import styles from "./styles.module.css";
+import { CartPopup } from "../cartComponent/CartPopupWindow/CartPopup";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { Burger } from "./burger/burger";
+import { CartIcon } from "../icons/cartIcon";
 
-    
 export const HeaderComponent = () => {
     const [cartPopupOpen, setCartPopupOpen] = useState(false);
-    const [menuView, setMenuView] = useState(false)
-    const cartState = useSelector((state: RootState) => state.cart.data)
+    const [menuView, setMenuView] = useState(false);
+    const cartState = useSelector((state: RootState) => state.cart.data);
     const handleCartPopupOpen = () => {
         setCartPopupOpen(true);
-    }
+    };
     const handleCartPopupClose = () => {
         setCartPopupOpen(false);
-    }
-    
-    const burger = document.querySelector('.burger');
+    };
 
-    burger?.addEventListener('click', () => {
-        if(burger.className != 'burger active')
-        burger.className = ( burger.className + '_active');
+    const burger = document.querySelector(".burger");
+
+    burger?.addEventListener("click", () => {
+        if (burger.className != "burger active")
+            burger.className = burger.className + "_active";
     });
 
     const viewMenu = () => {
-        if (menuView) setMenuView(false)
-        else setMenuView(true)
-    }
-    
+        if (menuView) setMenuView(false);
+        else setMenuView(true);
+    };
+
     return (
         <header className={styles.container}>
             <div className="content">
                 <div className={styles.rowOrderBox}>
                     <h1 className={styles.headTitle}>Sneak Max</h1>
-                    <nav className={styles.headNav}>
+                    <nav>
                         {screen.width > 640 && (
                             <ul className={styles.headNavList}>
                                 <a
@@ -167,4 +166,4 @@ export const HeaderComponent = () => {
             </div>
         </header>
     );
-}
+};

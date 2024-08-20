@@ -30,9 +30,9 @@
     height: fit-content;
 }
 
-.CrewMemImageContainer{
+.CrewMemImageContainer {
     width: 100%;
-    max-height: 40vh;  
+    max-height: 40vh;
     border-radius: 4px;
     overflow: hidden;
 }
@@ -53,19 +53,19 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .CrewMemImageContainer{
-    width: 100%;
-    max-height: 60vh;  
-    border-radius: 4px;
-    overflow: hidden;
-}
+    .CrewMemImageContainer {
+        width: 100%;
+        max-height: 60vh;
+        border-radius: 4px;
+        overflow: hidden;
+    }
 }
 
 @media screen and (max-width: 950px) {
-    .CrewMemcontainer{
+    .CrewMemcontainer {
         flex: 0 0 50%;
     }
-    .CrewMemImageContainer{
+    .CrewMemImageContainer {
         height: 150px;
     }
 }

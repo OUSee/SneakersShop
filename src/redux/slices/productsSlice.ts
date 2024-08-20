@@ -35,7 +35,7 @@ export const ProductsSlice = createSlice({
     initialState,
     reducers: {
         setData(state, action) {
-            state.data = action.payload as Sneaker[]
+            state.data = action.payload as Sneaker[];
         },
     },
     extraReducers: (builder) => {

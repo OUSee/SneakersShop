@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.container:hover .hoverOptions{
+.container:hover .hoverOptions {
     opacity: 100%;
 }
 
@@ -72,17 +72,14 @@
     box-shadow: 0 0 10px white inset;
 }
 
+@media screen and (max-width: 960px) {
+    .productTitle {
+        font-size: 8px;
+        color: black;
+    }
 
-@media screen and (max-width: 960px){
-    
-.productTitle {
-    font-size: 8px;
-    color: black;
-}
-
-.productPrice {    
-    font-size: 11px;
-    color: black;
-}
-
+    .productPrice {
+        font-size: 11px;
+        color: black;
+    }
 }

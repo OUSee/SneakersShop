@@ -1,4 +1,3 @@
-    
 export const InstaIcon = () => {
     return (
         <svg
@@ -16,4 +15,4 @@ export const InstaIcon = () => {
             />
         </svg>
     );
-}
+};

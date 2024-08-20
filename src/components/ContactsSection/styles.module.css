@@ -169,16 +169,16 @@
 }
 
 @media screen and (max-width: 960px) {
-    .contentContainer{
+    .contentContainer {
         flex-direction: column;
     }
-    .mapcontainer{
+    .mapcontainer {
         width: 100%;
     }
-    .linksIcons{
+    .linksIcons {
         margin-bottom: 28px;
     }
-    .tooltipContent{
+    .tooltipContent {
         transform: translateY(-60%);
         left: 23vw;
     }

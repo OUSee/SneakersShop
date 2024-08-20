@@ -8,7 +8,6 @@
     background-size: 385px;
 }
 
-
 .contentContainer {
     display: flex;
     flex-direction: row;
@@ -50,22 +49,18 @@
     height: 100%;
 }
 
-
-@media screen and (max-width: 960px){
-    .picContainer{
+@media screen and (max-width: 960px) {
+    .picContainer {
         width: 200px;
     }
-    .infoContainer{
-      
-    }
-    .infoHeader{
+    .infoHeader {
         margin-top: 50px;
         font-size: 14px;
     }
-    .infoQuote{
+    .infoQuote {
         font-size: 8px;
     }
-    .infoQuoteAuthor{
+    .infoQuoteAuthor {
         font-size: 11px;
         margin-bottom: 50%;
     }

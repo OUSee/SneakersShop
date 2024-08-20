@@ -1,4 +1,3 @@
-    
 export const ViewIcon = () => {
     return (
         <svg
@@ -28,4 +27,4 @@ export const ViewIcon = () => {
             />
         </svg>
     );
-}
+};

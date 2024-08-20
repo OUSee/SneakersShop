@@ -18,18 +18,12 @@
     margin: 0%;
 }
 
-.headNav {
-}
-
 .headNavList {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     gap: 28px;
-}
-
-.cartIcon {
 }
 
 .Link {
@@ -49,10 +43,8 @@
     cursor: pointer;
 }
 
-
-
 @media screen and (max-width: 640px) {
-    .rowOrderBox{
+    .rowOrderBox {
         display: flex;
         align-items: center;
         justify-content: center;

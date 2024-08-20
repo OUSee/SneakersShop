@@ -67,12 +67,12 @@
     cursor: pointer;
 }
 
-.headNavListMobile{
+.headNavListMobile {
     display: flex;
     gap: 14px;
 }
 
-.headNavListhidden{
+.headNavListhidden {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -100,10 +100,8 @@
     }
 }
 
-
-
 @media screen and (max-width: 640) {
-	.content{
-		padding: 0px 5% 0 5%;
-	}
+    .content {
+        padding: 0px 5% 0 5%;
+    }
 }

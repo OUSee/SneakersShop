@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosinstanse } from "../axiosInstance";
 import { Endpoints, Status, TeamMember } from "../../types";
 
-
 type TeamState = {
     data: TeamMember[];
     status: Status;
@@ -16,8 +15,7 @@ const initialState: TeamState = {
 export const TeamSlice = createSlice({
     name: "teamMembers",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getTeamMembers.pending, (state) => {
             state.status = Status.LOADING;

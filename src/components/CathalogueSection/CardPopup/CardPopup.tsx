@@ -183,7 +183,7 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
                             {sneaker?.title}
                         </h1>
                         <div id="rating" className={styles.rating}></div>
-                        <div className={styles.sizesGroup}>
+                        <div>
                             <h3 className={styles.sizesTitle}>
                                 Выберите размер
                             </h3>
@@ -249,18 +249,10 @@ export const CardPopup = ({ onClose, sneaker }: ICardPopup) => {
                             Характеристики
                         </h2>
                         <ul className={styles.characteristicslist}>
-                            <li className={styles.characteristicslistitem}>
-                                Пол: {sneaker?.gender}
-                            </li>
-                            <li className={styles.characteristicslistitem}>
-                                Цвета: {sneaker?.color}
-                            </li>
-                            <li className={styles.characteristicslistitem}>
-                                Состав: {sneaker?.compound}
-                            </li>
-                            <li className={styles.characteristicslistitem}>
-                                Страна: {sneaker?.country}
-                            </li>
+                            <li>Пол: {sneaker?.gender}</li>
+                            <li>Цвета: {sneaker?.color}</li>
+                            <li>Состав: {sneaker?.compound}</li>
+                            <li>Страна: {sneaker?.country}</li>
                         </ul>
                     </div>
                 </div>

@@ -1,10 +1,9 @@
-import { CartSection } from "../components/cartComponent/CartSection/CartSection"
+import { CartSection } from "../components/cartComponent/CartSection/CartSection";
 
-    
 export const CartPage = () => {
-    return ( 
+    return (
         <>
             <CartSection />
         </>
-    )
-}
+    );
+};

@@ -1,14 +1,13 @@
-import { InstaIcon } from '../icons/instaIcon';
-import { VkIcon } from '../icons/vkIcon';
-import styles from './styles.module.css'
+import { InstaIcon } from "../icons/instaIcon";
+import { VkIcon } from "../icons/vkIcon";
+import styles from "./styles.module.css";
 
-    
 export const ContactsSection = () => {
     return (
         <div className={styles.container}>
             <div id="contacts" className="content">
                 <div className={styles.contentContainer}>
-                    <div className={styles.infoContainer}>
+                    <div>
                         <h2 className={styles.sectionHeading}>Контакты</h2>
                         <div className={styles.tooltipgroup}>
                             <p className={styles.infoTitle}>главный офис</p>
@@ -34,13 +33,13 @@ export const ContactsSection = () => {
                                 className={styles.vkLink}
                                 href="https://vk.com/luckyoneboy"
                             >
-                               <VkIcon/>
+                                <VkIcon />
                             </a>
                             <a
                                 className={styles.instagramLink}
                                 href="https://www.instagram.com/dicedites_vir"
                             >
-                                <InstaIcon/>
+                                <InstaIcon />
                             </a>
                         </div>
                     </div>
@@ -72,4 +71,4 @@ export const ContactsSection = () => {
             </div>
         </div>
     );
-}
+};

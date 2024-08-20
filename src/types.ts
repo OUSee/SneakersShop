@@ -1,4 +1,3 @@
-
 export enum Status {
     IDLE = "IDLE",
     LOADING = "LOADING",
@@ -30,18 +29,17 @@ export type TeamMember = {
     role: string;
 };
 
-export type Cart = { 
+export type Cart = {
     uid: string;
     items: Sneaker[];
-}
+};
 
 export enum Endpoints {
     GET_SNEAKERS = "/sneakers",
     GET_TEAM = "/team",
     GET_CART_BY_UID = "/cart/?uid=",
-    CREATE_CART="/cart",
+    CREATE_CART = "/cart",
 }
-
 
 export interface Filter {
     start_price: number;
@@ -59,10 +57,10 @@ export interface Filter {
         size42: boolean;
         size43: boolean;
     };
-};
+}
 
 export const mapPrice = (price: number) => {
     var n = price.toString();
     var separator = " ";
     return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + separator);
-}
+};

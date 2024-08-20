@@ -1,4 +1,3 @@
-    
 export const TrashIcon = () => {
     return (
         <svg
@@ -37,4 +36,4 @@ export const TrashIcon = () => {
             </defs>
         </svg>
     );
-}
+};
