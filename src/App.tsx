@@ -8,13 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./redux/store";
 import { useEffect } from "react";
 import { getProducts } from "./redux/slices/productsSlice";
-import { getCart, postCart, updateCart } from "./redux/slices/cartsSlice";
+import { getCart, postCart } from "./redux/slices/cartsSlice";
 import { Cart, Status } from "./types";
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
-    const cartStatus = useSelector((state: RootState) => state.cart.status)
-    const cartState = useSelector((state: RootState) => state.cart.data)
+    const cartStatus = useSelector((state: RootState) => state.cart.status);
+    const cartState = useSelector((state: RootState) => state.cart.data);
 
     const checkifCartExists = () => {
         const generateUID = () => {
@@ -30,10 +30,10 @@ function App() {
             dispatch(getCart(cart.uid));
             if (cartStatus == Status.ERROR) {
                 dispatch(getCart(""));
-                const errCart : Cart= {
+                const errCart: Cart = {
                     uid: cart.uid,
-                    items: cartState.items
-                }
+                    items: cartState.items,
+                };
                 dispatch(postCart(errCart));
             }
         } else {
