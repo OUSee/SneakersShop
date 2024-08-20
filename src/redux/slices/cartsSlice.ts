@@ -1,6 +1,8 @@
+import { Cart } from './../../types';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosinstanse } from "../axiosInstance";
-import { Cart, Endpoints, Status } from "../../types";
+import { Endpoints, Status } from "../../types";
+
 
 type CartState = {
     data: Cart;
@@ -25,7 +27,10 @@ export const CartSlice = createSlice({
             if (payload) {
                 state.status = Status.SUCSESS;
                 state.data = payload as Cart;
-            } else console.log("no cart found");
+            } else {
+                console.log("no cart found")
+                state.status = Status.ERROR;
+            };    
         });
 
         builder.addCase(getCart.rejected, (state) => {
@@ -62,14 +67,20 @@ export const CartSlice = createSlice({
 });
 
 export const updateCart = createAsyncThunk("updateCart", async (cart: Cart) => {
-    const { data } = await axiosinstanse.patch(
-        Endpoints.GET_CART_BY_UID + cart.uid,
-        [cart]
-    );
-    const acseptableData: Cart = data[0];
-    if (acseptableData != undefined) {
-        return acseptableData;
+    if (cart.uid != "") {
+        const { data } = await axiosinstanse.patch(
+            Endpoints.GET_CART_BY_UID + cart.uid,
+            [cart]
+        );
+        const acseptableData: Cart = data[0];
+        if (acseptableData != undefined) {
+            return acseptableData;
+        }
     }
+    else {
+        alert("wrong id detected")
+    }
+    
 });
 
 export const postCart = createAsyncThunk(
@@ -93,3 +104,4 @@ export const getCart = createAsyncThunk("getCart", async (uid: string) => {
         return acseptableData;
     }
 });
+

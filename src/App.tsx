@@ -4,15 +4,17 @@ import { LayoutComponent } from "./components/Layout/Layout";
 import { HomePage } from "./Pages/HomePage";
 import { CartPage } from "./Pages/CartPage";
 import { NotFoundPage } from "./Pages/NotFoundPage";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "./redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "./redux/store";
 import { useEffect } from "react";
 import { getProducts } from "./redux/slices/productsSlice";
-import { getCart, postCart } from "./redux/slices/cartsSlice";
-import { Cart } from "./types";
+import { getCart, postCart, updateCart } from "./redux/slices/cartsSlice";
+import { Cart, Status } from "./types";
 
 function App() {
     const dispatch = useDispatch<AppDispatch>();
+    const cartStatus = useSelector((state: RootState) => state.cart.status)
+    const cartState = useSelector((state: RootState) => state.cart.data)
 
     const checkifCartExists = () => {
         const generateUID = () => {
@@ -26,6 +28,14 @@ function App() {
         if (json !== null) {
             let cart: Cart = JSON.parse(json);
             dispatch(getCart(cart.uid));
+            if (cartStatus == Status.ERROR) {
+                dispatch(getCart(""));
+                const errCart : Cart= {
+                    uid: cart.uid,
+                    items: cartState.items
+                }
+                dispatch(postCart(errCart));
+            }
         } else {
             const newCart: Cart = {
                 uid: generateUID(),
